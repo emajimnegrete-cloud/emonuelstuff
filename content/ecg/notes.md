@@ -1,0 +1,136 @@
+# ECG — lectura sistemática y patrones clave
+*ECG — systematic reading & key patterns*
+
+> **Tema / Topic:** Electrocardiografía · **Público:** estudiantes y residentes · **Idioma:** ES/EN
+> **Versión:** 1.0 · **Nivel de evidencia:** estándares AHA/ACCF/HRS + 4ª Definición Universal de IM — ver `sources.md`
+> ⚕️ **Educativo.** El ECG se interpreta SIEMPRE en contexto clínico. Compara con ECG previos,
+> correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "normal".
+
+Esta es la **fuente de verdad** ("backend"). De aquí salen la infografía, el deck y los mnemónicos.
+
+---
+
+## 1. Lectura sistemática en 8 pasos / The 8-step systematic read
+
+Lee **siempre en el mismo orden** para no saltarte nada:
+
+1. **Frecuencia** *(Rate)* — ¿taqui, bradi o normal?
+2. **Ritmo** *(Rhythm)* — ¿regular? ¿hay onda P antes de cada QRS?
+3. **Eje** *(Axis)* — normal, izquierdo, derecho o extremo.
+4. **Onda P** *(P wave)* — morfología, ¿agrandamiento auricular?
+5. **Intervalo PR** *(PR)* — 120–200 ms (3–5 cuadros chicos).
+6. **QRS** — ancho (<120 ms) y morfología (¿bloqueo de rama? ¿hipertrofia?).
+7. **Segmento ST / Onda T** — ¿elevación/descenso? ¿T picudas o invertidas?
+8. **QT/QTc** — ¿prolongado? (riesgo de torsade).
+
+> Velocidad estándar 25 mm/s, 10 mm/mV. Cuadro chico = **0,04 s** (40 ms); cuadro grande = **0,20 s** (200 ms).
+
+---
+
+## 2. Frecuencia y ritmo / Rate & rhythm
+
+### Calcular la frecuencia *(Rate)*
+- **Regla 300:** 300 ÷ (nº de cuadros **grandes** entre dos R) → `300, 150, 100, 75, 60, 50`.
+- **Regla de los 6 s:** cuenta QRS en 6 s (30 cuadros grandes) × 10 (útil si es **irregular**).
+- Normal **60–100 lpm**; <60 bradicardia; >100 taquicardia.
+
+### Definir el ritmo *(Rhythm)*
+- ¿**Regular** o irregular? ¿Onda **P** antes de **cada** QRS y QRS tras cada P?
+- **Sinusal normal:** P positiva en II, negativa en aVR, 1 P por QRS, 60–100 lpm.
+- **Fibrilación auricular:** irregularmente irregular, **sin** ondas P (línea de base fibrilante).
+- **Flutter auricular:** ondas en "dientes de sierra" (~300/min), conducción 2:1, 3:1…
+- **TSV:** taquicardia regular de QRS estrecho, sin P claras.
+- **TV:** taquicardia **regular de QRS ancho** → trátala como TV hasta demostrar lo contrario.
+
+---
+
+## 3. Eje e intervalos / Axis & intervals
+
+### Eje *(Axis)* — método rápido con I y aVF
+| Lead I | aVF | Eje |
+|---|---|---|
+| ➕ | ➕ | **Normal** (−30° a +90°) |
+| ➕ | ➖ | Revisa II: II ➕ = normal; II ➖ = **desviación izquierda (DEI)** |
+| ➖ | ➕ | **Desviación derecha (DED)** |
+| ➖ | ➖ | **Eje extremo / "tierra de nadie"** |
+
+### Intervalos clave *(Key intervals)*
+- **PR:** 120–200 ms. Largo fijo → BAV 1.º. Corto + delta → preexcitación (WPW).
+- **QRS:** <120 ms. Ancho → bloqueo de rama, ritmo ventricular, hiperK, marcapasos.
+- **QTc** (Bazett = QT/√RR): normal **<450 ms (H) / <460 ms (M)**; **>500 ms** = alto riesgo de torsade.
+
+---
+
+## 4. Isquemia e infarto / Ischemia & infarction
+
+### Cambios y su significado
+- **Elevación del ST** (en ≥2 derivaciones contiguas) → **lesión transmural aguda (STEMI)**.
+- **Descenso del ST / T invertida** → isquemia subendocárdica o cambios recíprocos.
+- **Onda Q patológica** → necrosis (infarto establecido).
+- **T hiperaguda picuda** → fase muy precoz del STEMI.
+
+### Territorios y arteria culpable / Territory → artery
+| Territorio | Derivaciones | Arteria probable |
+|---|---|---|
+| **Septal** | V1–V2 | DA (LAD) |
+| **Anterior** | V3–V4 | DA (LAD) |
+| **Lateral** | I, aVL, V5–V6 | Circunfleja (LCx) / diagonal |
+| **Inferior** | II, III, aVF | **CD (RCA)** (a veces LCx) |
+| **Posterior** | descenso ST V1–V3 + R alta | CD / LCx |
+| **VD** | V4R (elevación) | CD proximal |
+
+> **Recíprocos:** un STEMI inferior suele dar **descenso del ST en I/aVL**; confirma la sospecha.
+> 🚩 En IM **inferior**, pide **V4R**: si hay infarto de **VD**, evita nitratos (precarga-dependiente).
+
+---
+
+## 5. Arritmias y bloqueos / Arrhythmias & blocks
+
+### Bloqueos AV *(AV blocks)*
+- **1.º grado:** PR **largo fijo** (>200 ms), todas las P conducen.
+- **2.º Mobitz I (Wenckebach):** PR **se alarga progresivamente** hasta que **cae** un QRS.
+- **2.º Mobitz II:** PR **constante** y de pronto **cae** un QRS → riesgo de progresar a completo (marcapasos).
+- **3.º grado (completo):** **disociación AV** — P y QRS independientes, sin relación.
+
+### Bloqueos de rama *(Bundle branch blocks)* — QRS ≥120 ms
+- **BRD (RBBB):** patrón **rSR'** ("orejas de conejo") en **V1**; S ancha en I/V6. → "**MaRRoW**".
+- **BRI (LBBB):** QRS ancho y mellado en **I/V6**; QS/rS en V1. → "**WiLLiaM**". *(BRI nuevo + dolor = activar protocolo.)*
+
+### Otras "no te las pierdas"
+- **Hiperpotasemia:** T **picudas** → P plana → **QRS ancho** → onda sinusal (urgencia).
+- **TV:** QRS ancho, regular, rápida; **inestable → cardioversión**.
+- **Torsade de pointes:** TV polimorfa con QT largo; trata con **magnesio**.
+- **WPW:** PR corto + **onda delta** + QRS ancho.
+- **Pericarditis:** elevación ST **difusa, cóncava** + descenso del PR.
+
+---
+
+## 6. Perlas clínicas / Clinical pearls
+
+- **Lee siempre igual** (los 8 pasos): la sistemática evita errores más que el "ojo clínico".
+- **Compara con un ECG previo** — un BRI o una Q pueden ser **viejos**.
+- **QRS ancho + taquicardia regular = TV** hasta que se demuestre lo contrario (sobre todo si hay cardiopatía).
+- **ST elevado no siempre es IM:** repolarización precoz, pericarditis, BRI, hiperK, aneurisma, Brugada.
+- **Sgarbossa** ayuda a leer isquemia cuando hay **BRI** o marcapasos.
+- **"Tiempo es músculo":** ante STEMI, la lectura rápida activa el cateterismo.
+
+## 7. Banderas rojas / Red flags
+
+- 🚩 **Elevación del ST** en derivaciones contiguas → activar protocolo STEMI.
+- 🚩 **BRI nuevo** con dolor torácico → trátalo como equivalente de STEMI hasta descartar.
+- 🚩 **Mobitz II o BAV completo** → riesgo de asistolia; marcapasos.
+- 🚩 **QTc >500 ms** → riesgo de torsade; revisa fármacos y electrolitos.
+- 🚩 **T picudas + QRS ancho** → hiperpotasemia: trata YA (calcio, etc.).
+- 🚩 **Taquicardia de QRS ancho inestable** → cardioversión, no demores con dudas diagnósticas.
+
+---
+
+## 8. Para la versión "explica-fácil" (pacientes) / Patient-friendly
+
+- "El ECG mira la **actividad eléctrica** del corazón, no lo 'tapado' de las arterias directamente."
+- "Un ECG normal **no descarta** un problema del corazón si tienes síntomas — pueden hacer falta más pruebas."
+- "Si tienes dolor de pecho, sudor frío o falta de aire: **busca ayuda urgente**, no esperes en casa."
+
+---
+
+*Fuentes y nivel de evidencia → `sources.md`. Mnemónicos → `mnemonics.md`. Deck → `flashcards.md`.*
