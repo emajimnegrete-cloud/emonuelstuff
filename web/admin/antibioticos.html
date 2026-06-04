@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ClinDeck · Admin — Antibioticos</title>
+<link rel="stylesheet" href="admin.css" />
+<script defer src="admin.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner"><a class="logo" href="index.html"><span class="mark">CD</span><span><span style="color:#0F172A">Clin</span><span style="color:#0D9488">Deck</span></span></a><span class="adm-tag">ADMIN</span><div class="links"><a href="index.html">Catálogo admin</a><a href="../index.html" target="_blank">Web pública ↗</a></div></div></div>
+<div class="admin-main">
+  <div class="subnav"><div class="subnav-inner"><a href="../infographics/antibioticos.html" target="_blank">🖼️ Infografía ↗</a> <a href="#apuntes">📝 Apuntes</a> <a href="#mnemonicos">🧠 Mnemónicos</a> <a href="#flashcards">🃏 Flashcards</a> <a href="#fuentes">📚 Fuentes</a></div></div>
+  <div class="wrap">
+    <div class="notice">👁️ Vista privada — así se ve TODO lo que ofreces en este tema. Los compradores reciben esto (PDF/Anki); aquí lo revisas tú.</div>
+    <section id="apuntes" class="md"><h1>Antibióticos — espectro y elección empírica</h1>
+<p><em>Antibiotics — coverage spectrum &amp; empiric choice</em></p>
+<blockquote>
+<p><strong>Tema / Topic:</strong> Antibióticos · <strong>Público:</strong> estudiantes y residentes · <strong>Idioma:</strong> ES/EN
+<strong>Versión:</strong> 1.0 · <strong>Nivel de evidencia:</strong> guías (IDSA/ATS, WHO AWaRe, Sanford) — ver <code>sources.md</code>
+⚕️ <strong>Educativo.</strong> La elección real depende de epidemiología y resistencias locales,
+alergias, función renal/hepática y foco. Verificar antibiograma y guía local.</p>
+</blockquote>
+<p>Esta es la <strong>fuente de verdad</strong> ("backend"). De aquí salen la infografía, el deck y los mnemónicos.</p>
+<hr />
+<h2>1. Mapa mental: ¿cómo pensar un antibiótico? / How to reason about an antibiotic</h2>
+<p>Antes de elegir, responde 4 preguntas:</p>
+<ol>
+<li><strong>¿Foco?</strong> <em>(Source?)</em> — pulmón, vía urinaria, piel/partes blandas, abdomen, SNC…</li>
+<li><strong>¿Bicho probable?</strong> <em>(Likely bug?)</em> — por foco + contexto (comunitario vs nosocomial, factores de riesgo).</li>
+<li><strong>¿Cobertura necesaria?</strong> <em>(Coverage needed?)</em> — Gram+, Gram−, atípicos, anaerobios, ¿MRSA?, ¿Pseudomonas?</li>
+<li><strong>¿Paciente?</strong> <em>(Patient?)</em> — alergias, función renal/hepática, embarazo, gravedad (¿sepsis?), penetración al foco.</li>
+</ol>
+<blockquote>
+<p><strong>Regla de oro:</strong> empírico amplio y precoz si está grave → <strong>desescalar</strong> con cultivo/antibiograma a las 48–72 h. <em>(Start broad if sick, de-escalate with cultures.)</em></p>
+</blockquote>
+<hr />
+<h2>2. Matriz de cobertura por clase / Coverage matrix by class</h2>
+<p>Convención: ✅ verde = cubre/primera línea · 🟡 ámbar = variable/alternativa · ❌ rojo = no cubre.</p>
+<table>
+<thead>
+<tr>
+<th>Clase / Class</th>
+<th style="text-align: center;">Gram+ (S. aureus MSSA, Strep)</th>
+<th style="text-align: center;">MRSA</th>
+<th style="text-align: center;">Gram− entéricos</th>
+<th style="text-align: center;">Pseudomonas</th>
+<th style="text-align: center;">Anaerobios</th>
+<th style="text-align: center;">Atípicos¹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Penicilina G / V</strong></td>
+<td style="text-align: center;">🟡 (Strep ✅, estafilo ❌)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟡 (orales)</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Amoxicilina</strong></td>
+<td style="text-align: center;">✅ Strep</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Amox-clavulánico / Amp-sulbactam</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Pip-tazobactam</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Cefazolina (1ª G)</strong></td>
+<td style="text-align: center;">✅ MSSA</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Ceftriaxona (3ª G)</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Ceftazidima (3ª G)</strong></td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Cefepime (4ª G)</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Ceftarolina (5ª G)</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Carbapenémicos²</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ (BLEE)</td>
+<td style="text-align: center;">✅ (no ertapenem)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Aztreonam</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Vancomicina</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟡 (C. difficile VO)</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Linezolid / Daptomicina³</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Clindamicina</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🟡 (comunitario)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ (supradiafragm.)</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Metronidazol</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ (infradiafragm.)</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Aminoglucósidos</strong></td>
+<td style="text-align: center;">🟡 (sinergia)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>Fluoroquinolonas⁴</strong></td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🟡 (cipro/levo)</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Macrólidos</strong></td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>Doxiciclina</strong></td>
+<td style="text-align: center;">✅ (incl. CA-MRSA)</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>TMP-SMX (cotrimoxazol)</strong></td>
+<td style="text-align: center;">✅ (incl. CA-MRSA)</td>
+<td style="text-align: center;">🟡</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<p>¹ Atípicos = <em>Mycoplasma, Chlamydia, Legionella.</em>
+² Carbapenémicos: meropenem, imipenem, ertapenem (ertapenem <strong>no</strong> cubre Pseudomonas).
+³ <strong>Daptomicina NO sirve para neumonía</strong> (inactivada por surfactante).
+⁴ Respiratorias (levo/moxi) cubren neumococo y atípicos; moxifloxacino añade anaerobios pero <strong>no</strong> Pseudomonas.</p>
+<hr />
+<h2>3. Elección empírica por síndrome / Empiric choice by syndrome</h2>
+<blockquote>
+<p>Solo orientativo; ajusta a guía local, gravedad y alergias. Dosis en <code>sources.md</code>/guía.</p>
+</blockquote>
+<h3>Neumonía adquirida en comunidad (NAC) / CAP</h3>
+<ul>
+<li><strong>Ambulatorio sano:</strong> amoxicilina (alta dosis) <strong>o</strong> doxiciclina. <em>(Macrólido si baja resistencia local.)</em></li>
+<li><strong>Ambulatorio con comorbilidad:</strong> β-lactámico (amox-clav/cefuroxima) <strong>+</strong> macrólido, <strong>o</strong> fluoroquinolona respiratoria (levo/moxi).</li>
+<li><strong>Hospitalizado (sala):</strong> β-lactámico (ceftriaxona/ampi-sulbactam) <strong>+</strong> macrólido, <strong>o</strong> fluoroquinolona respiratoria.</li>
+<li><strong>UCI:</strong> β-lactámico + macrólido <strong>o</strong> + fluoroquinolona. Añadir cobertura <strong>MRSA/Pseudomonas</strong> solo con factores de riesgo. <em>(IDSA/ATS 2019.)</em></li>
+</ul>
+<h3>Infección del tracto urinario / UTI</h3>
+<ul>
+<li><strong>Cistitis no complicada:</strong> nitrofurantoína, fosfomicina <strong>o</strong> TMP-SMX (según resistencia local).</li>
+<li><strong>Pielonefritis:</strong> fluoroquinolona <strong>o</strong> ceftriaxona; ingreso → ceftriaxona/pip-tazo según gravedad.</li>
+</ul>
+<h3>Celulitis / Infección de piel y partes blandas (SSTI)</h3>
+<ul>
+<li><strong>No purulenta (Strep):</strong> cefazolina / cefalexina (cubre MSSA y Strep).</li>
+<li><strong>Purulenta (sospecha MRSA):</strong> drenaje + TMP-SMX <strong>o</strong> doxiciclina (ambulatorio); vancomicina (hospitalario).</li>
+<li>🚩 <strong>Necrosante:</strong> cirugía urgente + amplio (pip-tazo o carbapenem) + <strong>clindamicina</strong> (efecto antitoxina) ± vancomicina/linezolid.</li>
+</ul>
+<h3>Infección intraabdominal / Intra-abdominal</h3>
+<ul>
+<li>Necesita <strong>Gram− + anaerobios</strong>: pip-tazobactam <strong>o</strong> carbapenem; <strong>o</strong> ceftriaxona/cefepime <strong>+ metronidazol</strong>. ± cobertura enterococo/hongos según riesgo.</li>
+</ul>
+<h3>Meningitis bacteriana (adulto) / Bacterial meningitis</h3>
+<ul>
+<li><strong>Ceftriaxona + vancomicina</strong> (neumococo resistente). <strong>+ ampicilina</strong> si &gt;50 a / inmunodeprimido (Listeria). <strong>+ dexametasona</strong> antes/junto a 1ª dosis (neumococo). <em>(Empírico — ajustar a tinción/cultivo.)</em></li>
+</ul>
+<hr />
+<h2>4. Perlas clínicas / Clinical pearls</h2>
+<ul>
+<li><strong>"El que cubre Pseudomonas casi nunca cubre MRSA"</strong> y viceversa → en sepsis grave a veces necesitas <strong>ambos</strong> (p.ej. pip-tazo/cefepime <strong>+</strong> vancomicina).</li>
+<li><strong>Anaerobios por encima/por debajo del diafragma:</strong> <em>encima</em> → clindamicina; <em>debajo</em> → metronidazol.</li>
+<li><strong>Daptomicina ≠ pulmón</strong> (surfactante la inactiva).</li>
+<li><strong>Ertapenem ≠ Pseudomonas</strong> (el único carbapenémico que no la cubre).</li>
+<li><strong>Aztreonam</strong> es el comodín en alergia grave a β-lactámicos (sin reacción cruzada relevante con penicilina), pero solo Gram−.</li>
+<li><strong>Vancomicina oral</strong> solo actúa en la luz intestinal → <strong>únicamente</strong> para <em>C. difficile</em>, no para infección sistémica.</li>
+<li><strong>Clindamicina + toxinas:</strong> apaga producción de toxinas en <em>Strep</em>/<em>Staph</em> (necrosante, shock tóxico).</li>
+<li>Desescalar siempre que el cultivo lo permita: menos resistencias, menos <em>C. difficile</em>, menos costo. (WHO <strong>AWaRe</strong>: prioriza grupo <em>Access</em>, reserva <em>Watch/Reserve</em>.)</li>
+</ul>
+<h2>5. Banderas rojas / Red flags</h2>
+<ul>
+<li>🚩 Alergia a penicilina <strong>real</strong> (anafilaxia) → evita β-lactámicos de alto riesgo; aztreonam/no-β-lactámico según foco.</li>
+<li>🚩 Fluoroquinolonas: tendinopatía/rotura, aneurisma aórtico, QT, disglucemia, neuropatía → no usar como 1ª línea si hay alternativa.</li>
+<li>🚩 Embarazo: <strong>evitar</strong> fluoroquinolonas, tetraciclinas y (cerca del término) TMP-SMX y nitrofurantoína.</li>
+<li>🚩 Vancomicina: requiere monitoreo (AUC/nivel), nefrotoxicidad; "síndrome del hombre rojo" por infusión rápida.</li>
+<li>🚩 Aminoglucósidos: nefro/ototoxicidad → monitorizar, dosis por peso/función renal.</li>
+<li>🚩 Macrólidos/fluoroquinolonas: prolongan <strong>QT</strong> (cuidado con otros fármacos QT).</li>
+</ul>
+<hr />
+<h2>6. Para la versión "explica-fácil" (pacientes) / Patient-friendly version</h2>
+<ul>
+<li>"Los antibióticos no curan resfriados ni gripe (virus)."</li>
+<li>"Termina el tratamiento que te indicaron; no guardes sobras ni te automediques."</li>
+<li>"Cada uso innecesario crea bacterias resistentes — un problema de todos."</li>
+</ul>
+<hr />
+<p><em>Fuentes y nivel de evidencia → <code>sources.md</code>. Mnemónicos → <code>mnemonics.md</code>. Deck → <code>flashcards.md</code>.</em></p></section>
+<section id="mnemonicos" class="md"><h1>Antibióticos — Mnemónicos / Mnemonics</h1>
+<p><em>ClinDeck · v1.0 · ES/EN · educativo</em></p>
+<p>Mnemónicos para recordar las coberturas "que se preguntan en la guardia y en el examen".</p>
+<hr />
+<h2>1. ¿Quién cubre Pseudomonas? / Antipseudomonal agents</h2>
+<p><strong>"Para Pseudomonas: Cef-Cef-Pip, los Carba (menos Erta), Azt, FQ y Amino"</strong></p>
+<table>
+<thead>
+<tr>
+<th>Agente</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cef</strong>tazidima</td>
+<td>3ª gen antipseudomónica</td>
+</tr>
+<tr>
+<td><strong>Cef</strong>epime</td>
+<td>4ª gen</td>
+</tr>
+<tr>
+<td><strong>Pip</strong>eracilina-tazobactam</td>
+<td>β-lactámico de amplio espectro</td>
+</tr>
+<tr>
+<td><strong>Carba</strong>penémicos</td>
+<td>meropenem/imipenem/doripenem — <strong>NO ertapenem</strong></td>
+</tr>
+<tr>
+<td><strong>Az</strong>treonam</td>
+<td>monobactámico (útil en alergia a penicilina)</td>
+</tr>
+<tr>
+<td><strong>F</strong>luoro<strong>Q</strong>uinolonas</td>
+<td>ciprofloxacino, levofloxacino</td>
+</tr>
+<tr>
+<td><strong>Amino</strong>glucósidos</td>
+<td>a menudo en sinergia, no en monoterapia</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>EN mnemonic: <strong>"Pseudomonas Cause Pretty Annoying Carbapenem Fights And Pus"</strong> →
+<strong>P</strong>ip-tazo, <strong>C</strong>eftazidime, <strong>C</strong>efepime, <strong>A</strong>ztreonam, <strong>C</strong>arbapenems(≠ertapenem),
+<strong>F</strong>luoroquinolones, <strong>A</strong>minoglycosides.</p>
+</blockquote>
+<hr />
+<h2>2. ¿Quién cubre MRSA? / Anti-MRSA agents</h2>
+<p><strong>"VaLe Da Ceftaro, Clinda, Cotri y Doxi"</strong></p>
+<ul>
+<li><strong>Va</strong>ncomicina</li>
+<li><strong>L</strong>inezolid</li>
+<li><strong>Da</strong>ptomicina <em>(¡no en pulmón!)</em></li>
+<li><strong>Ceftaro</strong>lina (la única cefalosporina anti-MRSA)</li>
+<li><strong>Clinda</strong>micina <em>(sobre todo CA-MRSA)</em></li>
+<li><strong>Cotri</strong>moxazol (TMP-SMX) <em>(CA-MRSA)</em></li>
+<li><strong>Doxi</strong>ciclina <em>(CA-MRSA)</em></li>
+</ul>
+<blockquote>
+<p>Truco: las primeras 4 (Vanco, Linezolid, Dapto, Ceftaro) son las "hospitalarias";
+las últimas 3 (Clinda, Cotri, Doxi) son las "orales/comunitarias".</p>
+</blockquote>
+<hr />
+<h2>3. Anaerobios: arriba vs abajo del diafragma / Anaerobic coverage</h2>
+<p><strong>"Arriba Clinda, abajo Metro"</strong> — <em>(Clindamycin above the diaphragm, Metronidazole below.)</em></p>
+<ul>
+<li><strong>Encima del diafragma</strong> (boca, pulmón/aspiración): <strong>clindamicina</strong>.</li>
+<li><strong>Debajo del diafragma</strong> (abdomen, pelvis): <strong>metronidazol</strong>.</li>
+<li>"Comodines" que cubren anaerobios en ambos lados: <strong>amox-clav / amp-sulbactam, pip-tazo, carbapenémicos</strong>.</li>
+</ul>
+<hr />
+<h2>4. Atípicos / "Atypical" coverage</h2>
+<p><strong>"A los atípicos los pelan: Macrólidos, Quinolonas y Tetraciclinas (MQT)"</strong></p>
+<ul>
+<li><strong>M</strong>acrólidos (azitro, claritro)</li>
+<li><strong>Q</strong>uinolonas respiratorias (levo, moxi)</li>
+<li><strong>T</strong>etraciclinas (doxiciclina)</li>
+</ul>
+<blockquote>
+<p>Atípicos = <em>Mycoplasma, Chlamydia, Legionella.</em> Los β-lactámicos <strong>no</strong> los cubren
+(no tienen pared diana clásica) → por eso en NAC se añade macrólido o se usa FQ respiratoria.</p>
+</blockquote>
+<hr />
+<h2>5. Generaciones de cefalosporinas / Cephalosporin generations</h2>
+<p><strong>Idea clave:</strong> <em>al subir de generación, ganas Gram− y pierdes Gram+ … hasta la 4ª/5ª.</em></p>
+<table>
+<thead>
+<tr>
+<th>Gen</th>
+<th>Recordatorio</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1ª</td>
+<td>"<strong>PEcK</strong>" Gram+ y piel</td>
+<td>cefazolina, cefalexina</td>
+</tr>
+<tr>
+<td>2ª</td>
+<td>gana algo de Gram− y anaerobios</td>
+<td>cefuroxima, cefoxitina</td>
+</tr>
+<tr>
+<td>3ª</td>
+<td>Gram− serio, cruza al SNC</td>
+<td>ceftriaxona; <strong>ceftazidima</strong> = Pseudomonas</td>
+</tr>
+<tr>
+<td>4ª</td>
+<td>amplio, Gram+ <strong>y</strong> Pseudomonas</td>
+<td>cefepime</td>
+</tr>
+<tr>
+<td>5ª</td>
+<td>+ <strong>MRSA</strong></td>
+<td>ceftarolina</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>"<strong>Cef-tri-axona</strong> entra al cerebro" → buena penetración a LCR (meningitis).</p>
+</blockquote>
+<hr />
+<h2>6. Evitar en embarazo / Avoid in pregnancy</h2>
+<p><strong>"SAFE Moms Avoid The FaQs"</strong> → evita <strong>F</strong>luoroquinolonas, <strong>T</strong>etraciclinas,
+<strong>A</strong>minoglucósidos (relativo), y cerca del término <strong>sulfas</strong> y <strong>nitrofurantoína</strong>.
+Generalmente <strong>seguros:</strong> penicilinas, cefalosporinas, (azitromicina). <em>(Confirmar siempre.)</em></p>
+<hr />
+<h2>7. Efectos adversos clásicos para examen / Classic side effects</h2>
+<ul>
+<li><strong>Vancomicina</strong> → "<strong>hombre rojo</strong>" (infusión rápida) + nefrotoxicidad.</li>
+<li><strong>Aminoglucósidos</strong> → <strong>nefro + oto</strong>toxicidad ("oye mal y orina mal").</li>
+<li><strong>Fluoroquinolonas</strong> → <strong>tendones</strong> (rotura del Aquiles), aorta, QT, glucemia.</li>
+<li><strong>Tetraciclinas</strong> → fotosensibilidad + manchas en dientes (niños).</li>
+<li><strong>Metronidazol</strong> → <strong>efecto disulfiram</strong> con alcohol ("no brindes con metro").</li>
+<li><strong>Linezolid</strong> → inhibe MAO (cuidado serotoninérgicos) + mielosupresión si prolongado.</li>
+</ul>
+<hr />
+<p><em>Fuente de los datos clínicos → <code>notes.md</code>. Estos mnemónicos son ayudas de memoria, no reglas rígidas.</em></p></section>
+<section id="flashcards" class="md"><h1>Antibióticos — Deck de Flashcards / Flashcard Deck</h1>
+<p><em>ClinDeck · v1.0 · ES/EN · 30 cartas · educativo</em></p>
+<p>Este es el <strong>deck fuente</strong>. Las cartas usan el formato <code>Frente | Reverso</code> para poder
+exportarse a <strong>Anki</strong> (importación CSV, separador <code>|</code>) o a cualquier app de repaso espaciado.</p>
+<h2>Cómo importar a Anki / How to import into Anki</h2>
+<ol>
+<li>Copia el bloque CSV de más abajo a un archivo <code>antibioticos.csv</code>.</li>
+<li>En Anki: <strong>Archivo → Importar</strong> → selecciona el <code>.csv</code>.</li>
+<li>Separador de campos: <strong><code>|</code> (barra vertical)</strong> · Campo 1 = Front · Campo 2 = Back.</li>
+<li>Asigna el mazo "ClinDeck::Antibióticos" y la nota "Básico". ¡Listo para repasar!</li>
+</ol>
+<blockquote>
+<p>Tip de venta (Gumroad): el producto es el <code>.apkg</code> ya armado + este CSV + PDF imprimible.</p>
+</blockquote>
+<hr />
+<h2>CSV (Front | Back)</h2>
+<pre><code class="language-csv">¿Qué clases cubren Pseudomonas aeruginosa?|Ceftazidima, cefepime, pip-tazobactam, carbapenémicos (NO ertapenem), aztreonam, fluoroquinolonas (cipro/levo) y aminoglucósidos.
+¿Qué carbapenémico NO cubre Pseudomonas?|Ertapenem.
+Nombra agentes con cobertura anti-MRSA.|Vancomicina, linezolid, daptomicina, ceftarolina, clindamicina, TMP-SMX y doxiciclina.
+¿Por qué la daptomicina NO sirve para neumonía?|Es inactivada por el surfactante pulmonar.
+Anaerobios: ¿clindamicina o metronidazol según localización?|Clindamicina por ENCIMA del diafragma; metronidazol por DEBAJO.
+¿Qué cubre la cefazolina (1ª generación)?|Gram+ (MSSA y Streptococcus) y algo de Gram−; buena para celulitis no purulenta y profilaxis quirúrgica.
+¿Cuál es la única cefalosporina con cobertura anti-MRSA?|Ceftarolina (5ª generación).
+¿Qué cefalosporina de 3ª generación cubre Pseudomonas?|Ceftazidima.
+¿Qué microorganismos son los &quot;atípicos&quot; en neumonía?|Mycoplasma, Chlamydia y Legionella.
+¿Qué clases cubren atípicos?|Macrólidos, fluoroquinolonas respiratorias y tetraciclinas (doxiciclina).
+¿Por qué los β-lactámicos no cubren atípicos?|Los atípicos carecen de la pared celular clásica diana de los β-lactámicos.
+Tratamiento empírico de meningitis bacteriana en adulto.|Ceftriaxona + vancomicina; añadir ampicilina si &gt;50 años o inmunodepresión (Listeria) y dexametasona (neumococo).
+¿Qué cubre el metronidazol?|Anaerobios infradiafragmáticos (abdomen/pelvis) y protozoos; NO cubre aerobios.
+Esquema empírico de infección intraabdominal.|Cubrir Gram− + anaerobios: pip-tazobactam o carbapenem; o ceftriaxona/cefepime + metronidazol.
+¿Para qué sirve la vancomicina ORAL?|Solo para C. difficile (actúa en la luz intestinal); no trata infección sistémica.
+Cistitis no complicada: primeras líneas.|Nitrofurantoína, fosfomicina o TMP-SMX según resistencia local.
+Pielonefritis: opciones empíricas.|Fluoroquinolona o ceftriaxona; si ingresa, ceftriaxona o pip-tazobactam según gravedad.
+NAC ambulatoria en paciente sano.|Amoxicilina a dosis alta o doxiciclina (macrólido si baja resistencia local).
+NAC hospitalizado en sala.|β-lactámico (ceftriaxona/ampi-sulbactam) + macrólido, o una fluoroquinolona respiratoria.
+Celulitis purulenta con sospecha de MRSA (ambulatorio).|Drenaje + TMP-SMX o doxiciclina.
+Signo de alarma en fascitis necrosante: manejo.|Cirugía urgente + antibiótico amplio (pip-tazo/carbapenem) + clindamicina (efecto antitoxina) ± anti-MRSA.
+¿Qué β-lactámico se usa en alergia grave a penicilina para Gram−?|Aztreonam (sin reactividad cruzada relevante con penicilina).
+Efecto adverso clásico de la vancomicina por infusión rápida.|Síndrome del &quot;hombre rojo&quot; (liberación de histamina).
+Toxicidad clásica de los aminoglucósidos.|Nefrotoxicidad y ototoxicidad.
+Toxicidad clásica de las fluoroquinolonas.|Tendinopatía/rotura tendinosa, aneurisma aórtico, prolongación del QT y disglucemia.
+Antibióticos a evitar en el embarazo.|Fluoroquinolonas, tetraciclinas y (cerca del término) sulfas y nitrofurantoína.
+¿Qué antibiótico da efecto disulfiram con el alcohol?|Metronidazol.
+¿Qué hace la clindamicina en infecciones por toxinas (Strep/Staph)?|Inhibe la síntesis de toxinas (útil en shock tóxico y necrosante).
+Regla de las generaciones de cefalosporinas.|Al subir de generación se gana Gram− y se pierde Gram+, hasta 4ª (cefepime, +Pseudomonas) y 5ª (ceftarolina, +MRSA).
+Principio de &quot;desescalada&quot; antibiótica.|Iniciar amplio si está grave y reducir el espectro a las 48–72 h según cultivo/antibiograma.
+</code></pre>
+<hr />
+<h2>Versión EN (Front | Back) — para el mercado en inglés</h2>
+<pre><code class="language-csv">Which classes cover Pseudomonas aeruginosa?|Ceftazidime, cefepime, pip-tazobactam, carbapenems (NOT ertapenem), aztreonam, fluoroquinolones (cipro/levo), aminoglycosides.
+Which carbapenem does NOT cover Pseudomonas?|Ertapenem.
+Name the anti-MRSA agents.|Vancomycin, linezolid, daptomycin, ceftaroline, clindamycin, TMP-SMX, doxycycline.
+Why is daptomycin useless in pneumonia?|It is inactivated by pulmonary surfactant.
+Anaerobes: clindamycin vs metronidazole by site?|Clindamycin ABOVE the diaphragm; metronidazole BELOW.
+Only cephalosporin with anti-MRSA activity?|Ceftaroline (5th generation).
+Which 3rd-gen cephalosporin covers Pseudomonas?|Ceftazidime.
+Which bugs are the &quot;atypicals&quot; in pneumonia?|Mycoplasma, Chlamydia, Legionella.
+What is the oral vancomycin used for?|C. difficile only (acts in the gut lumen); no systemic effect.
+Empiric therapy for adult bacterial meningitis.|Ceftriaxone + vancomycin; add ampicillin if &gt;50y/immunocompromised (Listeria) and dexamethasone (pneumococcus).
+</code></pre>
+<blockquote>
+<p>El deck completo a la venta incluye 60+ cartas (ES+EN), imágenes de la matriz de
+cobertura y los algoritmos por síndrome. Esta muestra (free preview) se publica en Reddit.</p>
+</blockquote></section>
+<section id="fuentes" class="md"><h1>Antibióticos — Fuentes y nivel de evidencia / Sources &amp; evidence level</h1>
+<p><em>ClinDeck · v1.0</em></p>
+<p>ClinDeck cita siempre la fuente. Las recomendaciones empíricas de este tema se basan
+en <strong>guías de sociedades</strong> y referencias estándar de uso clínico. La epidemiología y
+las resistencias <strong>locales</strong> mandan: confirma con tu antibiograma y guía vigente.</p>
+<h2>Fuentes primarias / Primary sources</h2>
+<ol>
+<li>
+<p><strong>IDSA/ATS — Community-Acquired Pneumonia in Adults (2019).</strong>
+   Metlay JP, et al. <em>Am J Respir Crit Care Med.</em> 2019;200(7):e45–e67.
+   → Base de las recomendaciones de NAC (§3).</p>
+</li>
+<li>
+<p><strong>IDSA — Skin and Soft Tissue Infections (2014, practice guidelines).</strong>
+   Stevens DL, et al. <em>Clin Infect Dis.</em> 2014;59(2):e10–e52.
+   → Celulitis, infección purulenta, necrosante (§3).</p>
+</li>
+<li>
+<p><strong>IDSA — Bacterial Meningitis (practice guidelines).</strong>
+   Tunkel AR, et al. <em>Clin Infect Dis.</em> 2004;39:1267–84 (y actualizaciones).
+   → Esquema empírico de meningitis (§3).</p>
+</li>
+<li>
+<p><strong>IDSA — Complicated Intra-abdominal Infection.</strong>
+   Solomkin JS, et al. <em>Clin Infect Dis.</em> 2010;50(2):133–164.
+   → Cobertura Gram− + anaerobios (§3).</p>
+</li>
+<li>
+<p><strong>IDSA — Uncomplicated Cystitis &amp; Pyelonephritis.</strong>
+   Gupta K, et al. <em>Clin Infect Dis.</em> 2011;52(5):e103–e120.
+   → ITU (§3).</p>
+</li>
+<li>
+<p><strong>WHO AWaRe classification of antibiotics (Access, Watch, Reserve).</strong>
+   World Health Organization (versión vigente).
+   → Principio de uso racional / desescalada (§4).</p>
+</li>
+<li>
+<p><strong>The Sanford Guide to Antimicrobial Therapy</strong> (edición vigente).
+   → Espectros de cobertura y dosis de referencia (§2).</p>
+</li>
+<li>
+<p><strong>Referencias terciarias de apoyo:</strong> UpToDate, <em>Mandell, Douglas, and Bennett's
+   Principles and Practice of Infectious Diseases</em>, <em>Goodman &amp; Gilman</em> (farmacología).</p>
+</li>
+</ol>
+<h2>Nivel de evidencia / Evidence level</h2>
+<ul>
+<li>Las pautas empíricas provienen de <strong>guías de práctica clínica</strong> (consenso de
+  sociedades basado en RCTs + datos observacionales). Nivel variable según
+  recomendación; consultar la guía original para el grado exacto.</li>
+<li>Las <strong>coberturas de espectro</strong> (matriz §2) son farmacológicamente establecidas.</li>
+<li>Las <strong>resistencias locales</strong> pueden cambiar la elección empírica → revisar
+  antibiograma institucional y guía nacional/regional.</li>
+</ul>
+<h2>Mantenimiento</h2>
+<ul>
+<li>Revisar al menos <strong>anualmente</strong> y cuando se publique una nueva versión de guía.</li>
+<li>Registrar cambios en el encabezado de <code>notes.md</code> (campo <em>Versión</em>).</li>
+<li>⚕️ Material <strong>educativo</strong>; no sustituye juicio clínico ni guía local.</li>
+</ul></section>
+  </div>
+  <footer class="adm">ClinDeck · vista admin · generado desde <code>content/antibioticos/</code></footer>
+</div>
+</body>
+</html>

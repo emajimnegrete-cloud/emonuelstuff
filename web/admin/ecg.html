@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ClinDeck · Admin — Ecg</title>
+<link rel="stylesheet" href="admin.css" />
+<script defer src="admin.js"></script>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner"><a class="logo" href="index.html"><span class="mark">CD</span><span><span style="color:#0F172A">Clin</span><span style="color:#0D9488">Deck</span></span></a><span class="adm-tag">ADMIN</span><div class="links"><a href="index.html">Catálogo admin</a><a href="../index.html" target="_blank">Web pública ↗</a></div></div></div>
+<div class="admin-main">
+  <div class="subnav"><div class="subnav-inner"><a href="../infographics/ecg.html" target="_blank">🖼️ Infografía ↗</a> <a href="#apuntes">📝 Apuntes</a> <a href="#mnemonicos">🧠 Mnemónicos</a> <a href="#flashcards">🃏 Flashcards</a> <a href="#fuentes">📚 Fuentes</a></div></div>
+  <div class="wrap">
+    <div class="notice">👁️ Vista privada — así se ve TODO lo que ofreces en este tema. Los compradores reciben esto (PDF/Anki); aquí lo revisas tú.</div>
+    <section id="apuntes" class="md"><h1>ECG — lectura sistemática y patrones clave</h1>
+<p><em>ECG — systematic reading &amp; key patterns</em></p>
+<blockquote>
+<p><strong>Tema / Topic:</strong> Electrocardiografía · <strong>Público:</strong> estudiantes y residentes · <strong>Idioma:</strong> ES/EN
+<strong>Versión:</strong> 1.0 · <strong>Nivel de evidencia:</strong> estándares AHA/ACCF/HRS + 4ª Definición Universal de IM — ver <code>sources.md</code>
+⚕️ <strong>Educativo.</strong> El ECG se interpreta SIEMPRE en contexto clínico. Compara con ECG previos,
+correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "normal".</p>
+</blockquote>
+<p>Esta es la <strong>fuente de verdad</strong> ("backend"). De aquí salen la infografía, el deck y los mnemónicos.</p>
+<hr />
+<h2>1. Lectura sistemática en 8 pasos / The 8-step systematic read</h2>
+<p>Lee <strong>siempre en el mismo orden</strong> para no saltarte nada:</p>
+<ol>
+<li><strong>Frecuencia</strong> <em>(Rate)</em> — ¿taqui, bradi o normal?</li>
+<li><strong>Ritmo</strong> <em>(Rhythm)</em> — ¿regular? ¿hay onda P antes de cada QRS?</li>
+<li><strong>Eje</strong> <em>(Axis)</em> — normal, izquierdo, derecho o extremo.</li>
+<li><strong>Onda P</strong> <em>(P wave)</em> — morfología, ¿agrandamiento auricular?</li>
+<li><strong>Intervalo PR</strong> <em>(PR)</em> — 120–200 ms (3–5 cuadros chicos).</li>
+<li><strong>QRS</strong> — ancho (&lt;120 ms) y morfología (¿bloqueo de rama? ¿hipertrofia?).</li>
+<li><strong>Segmento ST / Onda T</strong> — ¿elevación/descenso? ¿T picudas o invertidas?</li>
+<li><strong>QT/QTc</strong> — ¿prolongado? (riesgo de torsade).</li>
+</ol>
+<blockquote>
+<p>Velocidad estándar 25 mm/s, 10 mm/mV. Cuadro chico = <strong>0,04 s</strong> (40 ms); cuadro grande = <strong>0,20 s</strong> (200 ms).</p>
+</blockquote>
+<hr />
+<h2>2. Frecuencia y ritmo / Rate &amp; rhythm</h2>
+<h3>Calcular la frecuencia <em>(Rate)</em></h3>
+<ul>
+<li><strong>Regla 300:</strong> 300 ÷ (nº de cuadros <strong>grandes</strong> entre dos R) → <code>300, 150, 100, 75, 60, 50</code>.</li>
+<li><strong>Regla de los 6 s:</strong> cuenta QRS en 6 s (30 cuadros grandes) × 10 (útil si es <strong>irregular</strong>).</li>
+<li>Normal <strong>60–100 lpm</strong>; &lt;60 bradicardia; &gt;100 taquicardia.</li>
+</ul>
+<h3>Definir el ritmo <em>(Rhythm)</em></h3>
+<ul>
+<li>¿<strong>Regular</strong> o irregular? ¿Onda <strong>P</strong> antes de <strong>cada</strong> QRS y QRS tras cada P?</li>
+<li><strong>Sinusal normal:</strong> P positiva en II, negativa en aVR, 1 P por QRS, 60–100 lpm.</li>
+<li><strong>Fibrilación auricular:</strong> irregularmente irregular, <strong>sin</strong> ondas P (línea de base fibrilante).</li>
+<li><strong>Flutter auricular:</strong> ondas en "dientes de sierra" (~300/min), conducción 2:1, 3:1…</li>
+<li><strong>TSV:</strong> taquicardia regular de QRS estrecho, sin P claras.</li>
+<li><strong>TV:</strong> taquicardia <strong>regular de QRS ancho</strong> → trátala como TV hasta demostrar lo contrario.</li>
+</ul>
+<hr />
+<h2>3. Eje e intervalos / Axis &amp; intervals</h2>
+<h3>Eje <em>(Axis)</em> — método rápido con I y aVF</h3>
+<table>
+<thead>
+<tr>
+<th>Lead I</th>
+<th>aVF</th>
+<th>Eje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>➕</td>
+<td>➕</td>
+<td><strong>Normal</strong> (−30° a +90°)</td>
+</tr>
+<tr>
+<td>➕</td>
+<td>➖</td>
+<td>Revisa II: II ➕ = normal; II ➖ = <strong>desviación izquierda (DEI)</strong></td>
+</tr>
+<tr>
+<td>➖</td>
+<td>➕</td>
+<td><strong>Desviación derecha (DED)</strong></td>
+</tr>
+<tr>
+<td>➖</td>
+<td>➖</td>
+<td><strong>Eje extremo / "tierra de nadie"</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Intervalos clave <em>(Key intervals)</em></h3>
+<ul>
+<li><strong>PR:</strong> 120–200 ms. Largo fijo → BAV 1.º. Corto + delta → preexcitación (WPW).</li>
+<li><strong>QRS:</strong> &lt;120 ms. Ancho → bloqueo de rama, ritmo ventricular, hiperK, marcapasos.</li>
+<li><strong>QTc</strong> (Bazett = QT/√RR): normal <strong>&lt;450 ms (H) / &lt;460 ms (M)</strong>; <strong>&gt;500 ms</strong> = alto riesgo de torsade.</li>
+</ul>
+<hr />
+<h2>4. Isquemia e infarto / Ischemia &amp; infarction</h2>
+<h3>Cambios y su significado</h3>
+<ul>
+<li><strong>Elevación del ST</strong> (en ≥2 derivaciones contiguas) → <strong>lesión transmural aguda (STEMI)</strong>.</li>
+<li><strong>Descenso del ST / T invertida</strong> → isquemia subendocárdica o cambios recíprocos.</li>
+<li><strong>Onda Q patológica</strong> → necrosis (infarto establecido).</li>
+<li><strong>T hiperaguda picuda</strong> → fase muy precoz del STEMI.</li>
+</ul>
+<h3>Territorios y arteria culpable / Territory → artery</h3>
+<table>
+<thead>
+<tr>
+<th>Territorio</th>
+<th>Derivaciones</th>
+<th>Arteria probable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Septal</strong></td>
+<td>V1–V2</td>
+<td>DA (LAD)</td>
+</tr>
+<tr>
+<td><strong>Anterior</strong></td>
+<td>V3–V4</td>
+<td>DA (LAD)</td>
+</tr>
+<tr>
+<td><strong>Lateral</strong></td>
+<td>I, aVL, V5–V6</td>
+<td>Circunfleja (LCx) / diagonal</td>
+</tr>
+<tr>
+<td><strong>Inferior</strong></td>
+<td>II, III, aVF</td>
+<td><strong>CD (RCA)</strong> (a veces LCx)</td>
+</tr>
+<tr>
+<td><strong>Posterior</strong></td>
+<td>descenso ST V1–V3 + R alta</td>
+<td>CD / LCx</td>
+</tr>
+<tr>
+<td><strong>VD</strong></td>
+<td>V4R (elevación)</td>
+<td>CD proximal</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Recíprocos:</strong> un STEMI inferior suele dar <strong>descenso del ST en I/aVL</strong>; confirma la sospecha.
+🚩 En IM <strong>inferior</strong>, pide <strong>V4R</strong>: si hay infarto de <strong>VD</strong>, evita nitratos (precarga-dependiente).</p>
+</blockquote>
+<hr />
+<h2>5. Arritmias y bloqueos / Arrhythmias &amp; blocks</h2>
+<h3>Bloqueos AV <em>(AV blocks)</em></h3>
+<ul>
+<li><strong>1.º grado:</strong> PR <strong>largo fijo</strong> (&gt;200 ms), todas las P conducen.</li>
+<li><strong>2.º Mobitz I (Wenckebach):</strong> PR <strong>se alarga progresivamente</strong> hasta que <strong>cae</strong> un QRS.</li>
+<li><strong>2.º Mobitz II:</strong> PR <strong>constante</strong> y de pronto <strong>cae</strong> un QRS → riesgo de progresar a completo (marcapasos).</li>
+<li><strong>3.º grado (completo):</strong> <strong>disociación AV</strong> — P y QRS independientes, sin relación.</li>
+</ul>
+<h3>Bloqueos de rama <em>(Bundle branch blocks)</em> — QRS ≥120 ms</h3>
+<ul>
+<li><strong>BRD (RBBB):</strong> patrón <strong>rSR'</strong> ("orejas de conejo") en <strong>V1</strong>; S ancha en I/V6. → "<strong>MaRRoW</strong>".</li>
+<li><strong>BRI (LBBB):</strong> QRS ancho y mellado en <strong>I/V6</strong>; QS/rS en V1. → "<strong>WiLLiaM</strong>". <em>(BRI nuevo + dolor = activar protocolo.)</em></li>
+</ul>
+<h3>Otras "no te las pierdas"</h3>
+<ul>
+<li><strong>Hiperpotasemia:</strong> T <strong>picudas</strong> → P plana → <strong>QRS ancho</strong> → onda sinusal (urgencia).</li>
+<li><strong>TV:</strong> QRS ancho, regular, rápida; <strong>inestable → cardioversión</strong>.</li>
+<li><strong>Torsade de pointes:</strong> TV polimorfa con QT largo; trata con <strong>magnesio</strong>.</li>
+<li><strong>WPW:</strong> PR corto + <strong>onda delta</strong> + QRS ancho.</li>
+<li><strong>Pericarditis:</strong> elevación ST <strong>difusa, cóncava</strong> + descenso del PR.</li>
+</ul>
+<hr />
+<h2>6. Perlas clínicas / Clinical pearls</h2>
+<ul>
+<li><strong>Lee siempre igual</strong> (los 8 pasos): la sistemática evita errores más que el "ojo clínico".</li>
+<li><strong>Compara con un ECG previo</strong> — un BRI o una Q pueden ser <strong>viejos</strong>.</li>
+<li><strong>QRS ancho + taquicardia regular = TV</strong> hasta que se demuestre lo contrario (sobre todo si hay cardiopatía).</li>
+<li><strong>ST elevado no siempre es IM:</strong> repolarización precoz, pericarditis, BRI, hiperK, aneurisma, Brugada.</li>
+<li><strong>Sgarbossa</strong> ayuda a leer isquemia cuando hay <strong>BRI</strong> o marcapasos.</li>
+<li><strong>"Tiempo es músculo":</strong> ante STEMI, la lectura rápida activa el cateterismo.</li>
+</ul>
+<h2>7. Banderas rojas / Red flags</h2>
+<ul>
+<li>🚩 <strong>Elevación del ST</strong> en derivaciones contiguas → activar protocolo STEMI.</li>
+<li>🚩 <strong>BRI nuevo</strong> con dolor torácico → trátalo como equivalente de STEMI hasta descartar.</li>
+<li>🚩 <strong>Mobitz II o BAV completo</strong> → riesgo de asistolia; marcapasos.</li>
+<li>🚩 <strong>QTc &gt;500 ms</strong> → riesgo de torsade; revisa fármacos y electrolitos.</li>
+<li>🚩 <strong>T picudas + QRS ancho</strong> → hiperpotasemia: trata YA (calcio, etc.).</li>
+<li>🚩 <strong>Taquicardia de QRS ancho inestable</strong> → cardioversión, no demores con dudas diagnósticas.</li>
+</ul>
+<hr />
+<h2>8. Para la versión "explica-fácil" (pacientes) / Patient-friendly</h2>
+<ul>
+<li>"El ECG mira la <strong>actividad eléctrica</strong> del corazón, no lo 'tapado' de las arterias directamente."</li>
+<li>"Un ECG normal <strong>no descarta</strong> un problema del corazón si tienes síntomas — pueden hacer falta más pruebas."</li>
+<li>"Si tienes dolor de pecho, sudor frío o falta de aire: <strong>busca ayuda urgente</strong>, no esperes en casa."</li>
+</ul>
+<hr />
+<p><em>Fuentes y nivel de evidencia → <code>sources.md</code>. Mnemónicos → <code>mnemonics.md</code>. Deck → <code>flashcards.md</code>.</em></p></section>
+<section id="mnemonicos" class="md"><h1>ECG — Mnemónicos / Mnemonics</h1>
+<p><em>ClinDeck · v1.0 · ES/EN · educativo</em></p>
+<p>Ayudas de memoria para la lectura del electrocardiograma. No sustituyen el razonamiento clínico.</p>
+<hr />
+<h2>1. Lectura sistemática / The systematic read</h2>
+<p><strong>"Frecuencia, Ritmo, Eje, P, PR, QRS, ST-T, QT"</strong> — los 8 pasos, siempre en orden.</p>
+<blockquote>
+<p>EN: <strong>"Rate, Rhythm, Axis, P, PR, QRS, ST/T, QT"</strong> — read it the same way every time.</p>
+</blockquote>
+<hr />
+<h2>2. Bloqueos de rama / Bundle branch blocks — <strong>WiLLiaM MaRRoW</strong></h2>
+<p>Mira <strong>V1</strong> y <strong>V6</strong>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>V1</th>
+<th>V6</th>
+<th>Patrón</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BRI (LBBB) = WiLLiaM</strong></td>
+<td><strong>W</strong> (QS, abajo)</td>
+<td><strong>M</strong> (arriba)</td>
+<td>"William"</td>
+</tr>
+<tr>
+<td><strong>BRD (RBBB) = MaRRoW</strong></td>
+<td><strong>M</strong> (rSR', orejas de conejo)</td>
+<td><strong>W</strong> (S ancha)</td>
+<td>"Marrow"</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Truco: la <strong>L</strong> de <strong>L</strong>BBB y de <strong>W</strong>i<strong>LL</strong>ia<strong>M</strong>; la <strong>R</strong> de <strong>R</strong>BBB y de Ma<strong>RR</strong>ow.</p>
+</blockquote>
+<hr />
+<h2>3. Eje rápido / Quick axis — "pulgares"</h2>
+<p>Mira <strong>I</strong> y <strong>aVF</strong> como dos pulgares:
+- <strong>Ambos ➕ (arriba)</strong> → eje <strong>normal</strong> ("los dos se saludan").
+- <strong>I ➕, aVF ➖</strong> → posible <strong>izquierda</strong> (confirma con II).
+- <strong>I ➖, aVF ➕</strong> → <strong>derecha</strong>.
+- <strong>Ambos ➖</strong> → <strong>eje extremo</strong>.</p>
+<blockquote>
+<p>Regla: <em>"si I y aVF apuntan el uno al otro (ambos positivos), todo bien".</em></p>
+</blockquote>
+<hr />
+<h2>4. Territorios del IM / MI territories — <strong>"I See All Leads, Septal"</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Territorio</th>
+<th>Derivaciones</th>
+<th>Arteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>I</strong>nferior</td>
+<td>II, III, aVF</td>
+<td><strong>RCA</strong> (CD)</td>
+</tr>
+<tr>
+<td><strong>S</strong>eptal</td>
+<td>V1–V2</td>
+<td><strong>LAD</strong> (DA)</td>
+</tr>
+<tr>
+<td><strong>A</strong>nterior</td>
+<td>V3–V4</td>
+<td><strong>LAD</strong> (DA)</td>
+</tr>
+<tr>
+<td><strong>L</strong>ateral</td>
+<td>I, aVL, V5–V6</td>
+<td><strong>LCx</strong> (circunfleja)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Mnemónico de arterias: <strong>inferior = RCA</strong>, <strong>anterior/septal = LAD</strong>, <strong>lateral = LCx</strong>.
+"<strong>SALI</strong>": <strong>S</strong>eptal, <strong>A</strong>nterior, <strong>L</strong>ateral, <strong>I</strong>nferior — de V1 hacia las extremidades.</p>
+</blockquote>
+<hr />
+<h2>5. Bloqueos AV / AV blocks — "más largo, más largo, ¡cayó!"</h2>
+<ul>
+<li><strong>1.º grado:</strong> <em>"PR largo, pero llega"</em> (PR fijo &gt;200 ms, ninguna P se pierde).</li>
+<li><strong>Mobitz I (Wenckebach):</strong> <em>"más largo, más largo, más largo… ¡cayó!"</em> (PR crece hasta caer un QRS).</li>
+<li><strong>Mobitz II:</strong> <em>"normal, normal, ¡cayó!"</em> (PR constante y de pronto se pierde un QRS).</li>
+<li><strong>3.º (completo):</strong> <em>"cada uno a lo suyo"</em> (P y QRS <strong>disociados</strong>).</li>
+</ul>
+<blockquote>
+<p>EN: <em>"Longer, longer, longer, drop — then you have a Wenckebach.</em> / <em>If some Ps just don't get through, then you have Mobitz II."</em></p>
+</blockquote>
+<hr />
+<h2>6. Causas de QT largo / Long-QT causes — drogas y electrolitos</h2>
+<p><strong>"Bajos que alargan: hipo-K, hipo-Mg, hipo-Ca"</strong> + fármacos <strong>"ABCDE"</strong>:
+- <strong>A</strong>ntiarrítmicos (sotalol, amiodarona, quinidina)
+- <strong>A</strong>ntibióticos (macrólidos, fluoroquinolonas)
+- <strong>A</strong>ntipsicóticos / <strong>A</strong>ntidepresivos
+- <strong>A</strong>ntieméticos (ondansetrón)
+- <strong>A</strong>ntifúngicos (azoles)</p>
+<blockquote>
+<p>Regla práctica: <strong>QTc &gt;500 ms = peligro de torsade</strong>. Trata la torsade con <strong>magnesio</strong>.</p>
+</blockquote>
+<hr />
+<h2>7. Hiperpotasemia: la escalera / Hyperkalemia ladder</h2>
+<p><strong>"T picuda → P se aplana → PR/QRS se ensanchan → onda sinusal → paro"</strong></p>
+<blockquote>
+<p>EN: <em>"Tall tented T → flat P → wide QRS → sine wave."</em> Cuanto más sube el K⁺, peor el trazo.</p>
+</blockquote>
+<hr />
+<p><em>Datos clínicos completos → <code>notes.md</code>. Fuentes → <code>sources.md</code>.</em></p></section>
+<section id="flashcards" class="md"><h1>ECG — Deck de Flashcards / Flashcard Deck</h1>
+<p><em>ClinDeck · v1.0 · ES/EN · 30 cartas · educativo</em></p>
+<p>Deck fuente en formato <code>Frente | Reverso</code>, importable a <strong>Anki</strong> (CSV, separador <code>|</code>).
+Mismo procedimiento que el deck de Antibióticos (ver <code>content/antibioticos/flashcards.md</code>).</p>
+<hr />
+<h2>CSV (Front | Back)</h2>
+<pre><code class="language-csv">¿Cuáles son los 8 pasos de la lectura sistemática del ECG?|Frecuencia, ritmo, eje, onda P, intervalo PR, QRS, segmento ST/onda T y QT/QTc.
+¿Cuánto dura un cuadro chico y uno grande a 25 mm/s?|Cuadro chico = 0,04 s (40 ms); cuadro grande = 0,20 s (200 ms).
+¿Cómo se calcula la frecuencia con la regla del 300?|300 dividido entre el número de cuadros grandes entre dos ondas R (300, 150, 100, 75, 60, 50).
+¿Qué método usar para calcular la frecuencia si el ritmo es irregular?|Contar los QRS en 6 segundos (30 cuadros grandes) y multiplicar por 10.
+Define ritmo sinusal normal.|Onda P positiva en II y negativa en aVR, una P por cada QRS, frecuencia 60–100 lpm.
+¿Cómo se ve la fibrilación auricular en el ECG?|Irregularmente irregular, sin ondas P, con línea de base fibrilante.
+¿Cómo distingues el flutter auricular?|Ondas en &quot;dientes de sierra&quot; a ~300/min con conducción AV fija (2:1, 3:1...).
+Método rápido del eje con I y aVF: ambos positivos.|Eje normal (entre −30° y +90°).
+Eje: I positivo y aVF negativo, ¿qué haces?|Revisar la derivación II: si II es positiva el eje es normal; si es negativa hay desviación izquierda.
+Eje: I negativo y aVF positivo.|Desviación del eje a la derecha.
+Valores normales del intervalo PR.|120–200 ms (3 a 5 cuadros chicos).
+¿Qué sugiere un PR corto con onda delta?|Preexcitación ventricular (síndrome de Wolff-Parkinson-White).
+Ancho normal del QRS y qué significa si está ensanchado.|&lt;120 ms; ensanchado sugiere bloqueo de rama, ritmo ventricular, hiperpotasemia o marcapasos.
+¿Qué QTc se considera de alto riesgo de torsade?|QTc mayor de 500 ms.
+Patrón de bloqueo de rama derecha (BRD) en V1.|rSR' (&quot;orejas de conejo&quot;) en V1 con S ancha en I y V6 (mnemónico MaRRoW).
+Patrón de bloqueo de rama izquierda (BRI) en V1 y V6.|QS o rS en V1 y QRS ancho mellado en I/V6 (mnemónico WiLLiaM).
+¿Qué significa la elevación del ST en dos derivaciones contiguas?|Lesión transmural aguda: infarto con elevación del ST (STEMI).
+Territorio inferior: derivaciones y arteria.|II, III y aVF; arteria coronaria derecha (RCA) habitualmente.
+Territorio anterior/septal: derivaciones y arteria.|V1–V2 (septal) y V3–V4 (anterior); arteria descendente anterior (LAD).
+Territorio lateral: derivaciones y arteria.|I, aVL, V5–V6; arteria circunfleja (LCx) o diagonal.
+¿Qué son los cambios recíprocos en un STEMI inferior?|Descenso del ST en I y aVL, que apoya el diagnóstico de infarto inferior.
+¿Por qué pedir V4R en un infarto inferior?|Para detectar infarto del ventrículo derecho; si lo hay, evitar nitratos (es precarga-dependiente).
+Bloqueo AV de 1.º grado.|Intervalo PR largo y fijo (&gt;200 ms); todas las ondas P conducen.
+Bloqueo AV de 2.º grado Mobitz I (Wenckebach).|El PR se alarga progresivamente hasta que cae un QRS.
+Bloqueo AV de 2.º grado Mobitz II.|PR constante y de pronto cae un QRS; riesgo de progresar a bloqueo completo (marcapasos).
+Bloqueo AV de 3.º grado (completo).|Disociación AV: ondas P y QRS independientes, sin relación entre sí.
+Secuencia del ECG en hiperpotasemia.|T picudas → onda P se aplana → QRS se ensancha → onda sinusal.
+Una taquicardia regular de QRS ancho, ¿cómo se asume?|Como taquicardia ventricular (TV) hasta demostrar lo contrario.
+Tratamiento de la torsade de pointes.|Sulfato de magnesio (y corregir el QT largo y los electrolitos).
+ECG típico de la pericarditis aguda.|Elevación del ST difusa y cóncava con descenso del segmento PR.
+</code></pre>
+<hr />
+<h2>Versión EN (Front | Back) — mercado en inglés</h2>
+<pre><code class="language-csv">What are the 8 steps of systematic ECG reading?|Rate, rhythm, axis, P wave, PR interval, QRS, ST segment/T wave, and QT/QTc.
+How do you calculate rate with the rule of 300?|300 divided by the number of large boxes between two R waves (300, 150, 100, 75, 60, 50).
+RBBB pattern in V1?|rSR' (&quot;rabbit ears&quot;) in V1 with a wide S in I and V6 (mnemonic: MaRRoW).
+LBBB pattern in V1/V6?|QS or rS in V1 and a wide, notched QRS in I/V6 (mnemonic: WiLLiaM).
+Inferior MI: leads and culprit artery?|II, III, aVF; usually the right coronary artery (RCA).
+Anterior/septal MI: leads and artery?|V1–V2 (septal) and V3–V4 (anterior); the left anterior descending (LAD).
+Mobitz I (Wenckebach) second-degree AV block?|Progressive PR lengthening until a QRS is dropped.
+Mobitz II second-degree AV block?|Constant PR with a suddenly dropped QRS; risk of complete block (pacemaker).
+Third-degree (complete) AV block?|AV dissociation: independent P waves and QRS complexes.
+Treatment of torsade de pointes?|Magnesium sulfate (plus correcting QT and electrolytes).
+</code></pre>
+<blockquote>
+<p>El deck completo a la venta incluye 60+ cartas (ES+EN), imágenes de los territorios
+y de los bloqueos AV. Esta muestra (free preview) se publica en Reddit.</p>
+</blockquote></section>
+<section id="fuentes" class="md"><h1>ECG — Fuentes y nivel de evidencia / Sources &amp; evidence level</h1>
+<p><em>ClinDeck · v1.0</em></p>
+<p>ClinDeck cita siempre la fuente. La interpretación del ECG se basa en <strong>estándares de
+sociedades</strong> y referencias clásicas de enseñanza. Correlaciona SIEMPRE con la clínica
+y con ECG previos del paciente.</p>
+<h2>Fuentes primarias / Primary sources</h2>
+<ol>
+<li>
+<p><strong>AHA/ACCF/HRS — Recommendations for the Standardization and Interpretation of the
+   Electrocardiogram</strong> (serie de documentos). Kligfield P, et al. <em>Circulation</em> /
+   <em>J Am Coll Cardiol.</em> 2007 y siguientes.
+   → Bases de medición de intervalos, eje y morfología (§1–§3).</p>
+</li>
+<li>
+<p><strong>Fourth Universal Definition of Myocardial Infarction (2018).</strong>
+   Thygesen K, et al. <em>Circulation</em> 2018;138:e618–e651.
+   → Criterios de elevación del ST e infarto (§4).</p>
+</li>
+<li>
+<p><strong>ACC/AHA/HRS — Guideline on the Evaluation and Management of Bradycardia and
+   Cardiac Conduction Delay (2018).</strong> Kusumoto FM, et al. <em>Circulation</em> 2019.
+   → Bloqueos AV y de rama (§5).</p>
+</li>
+<li>
+<p><strong>AHA ACLS — Adult Tachycardia / Bradycardia algorithms</strong> (edición vigente).
+   → Conducta ante taquiarritmias y bradiarritmias inestables (§5, §7).</p>
+</li>
+<li>
+<p><strong>Sgarbossa EB, et al.</strong> Electrocardiographic diagnosis of evolving acute MI in the
+   presence of LBBB. <em>N Engl J Med.</em> 1996 (y criterios de Smith modificados).
+   → Isquemia con BRI / marcapasos (§6).</p>
+</li>
+<li>
+<p><strong>Referencias de enseñanza de apoyo:</strong> <em>Dubin — Rapid Interpretation of EKG's</em>;
+   <em>Surawicz &amp; Knilans — Chou's Electrocardiography</em>; recursos educativos tipo
+   <em>Life in the Fast Lane (LITFL) ECG Library</em> (terciaria).</p>
+</li>
+</ol>
+<h2>Nivel de evidencia / Evidence level</h2>
+<ul>
+<li>Los <strong>criterios diagnósticos</strong> (STEMI, bloqueos, QT) provienen de <strong>guías de
+  sociedades</strong> y definiciones de consenso.</li>
+<li>Las <strong>mediciones e intervalos</strong> son estándares técnicos establecidos.</li>
+<li>La <strong>conducta</strong> ante arritmias inestables sigue <strong>ACLS</strong>; ajustar a protocolo local.</li>
+</ul>
+<h2>Mantenimiento</h2>
+<ul>
+<li>Revisar al menos <strong>anualmente</strong> y al publicarse nuevas guías.</li>
+<li>Registrar cambios en el encabezado de <code>notes.md</code> (campo <em>Versión</em>).</li>
+<li>⚕️ Material <strong>educativo</strong>; no sustituye el juicio clínico ni la correlación con la clínica.</li>
+</ul></section>
+  </div>
+  <footer class="adm">ClinDeck · vista admin · generado desde <code>content/ecg/</code></footer>
+</div>
+</body>
+</html>

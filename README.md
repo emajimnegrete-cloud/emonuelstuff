@@ -63,6 +63,12 @@ python3 -m http.server 8000
 y cada push a `web/` despliega el sitio automáticamente. La galería de infografías vive en
 `web/infographics/`.
 
+**Vista admin (privada):** `web/admin/` renderiza TODO tu contenido (apuntes,
+flashcards, mnemónicos, fuentes) como páginas navegables para tu revisión — separado del
+embudo público que va a Gumroad. Está `noindex` + con clave (edítala en `web/admin/admin.js`).
+Regénerala al añadir temas: `python3 tools/build-admin.py` (requiere `pip install markdown`).
+Una vez desplegado, ábrela en `…/admin/index.html`.
+
 **¿Vender ClinDeck como activo?** Lee **`SALE.md`** (valoración honesta, dónde listarla,
 plan de 90 días para una valoración de ~$10k y checklist de traspaso).
 

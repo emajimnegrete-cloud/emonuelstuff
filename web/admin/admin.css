@@ -1,0 +1,74 @@
+/* ClinDeck · Admin — vista privada del catálogo. Render de Markdown. */
+:root{
+  --teal:#0D9488; --teal-dark:#0F766E; --ink:#0F172A; --gray:#64748B;
+  --surface:#F8FAFC; --amber:#F59E0B; --red:#DC2626; --green:#16A34A; --line:#E2E8F0;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--surface);color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;}
+a{color:var(--teal-dark);}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+
+/* ---- Gate (acceso) ---- */
+.admin-main{display:none;}
+html.admin-unlocked .admin-main{display:block;}
+.gate{position:fixed;inset:0;background:linear-gradient(135deg,#0f766e,#0f172a);
+  display:grid;place-items:center;z-index:1000;}
+.gate-box{background:#fff;border-radius:16px;padding:28px;width:min(360px,92vw);text-align:center;
+  box-shadow:0 20px 60px -20px rgba(0,0,0,.5);}
+.gate-box h2{margin:0 0 4px;font-family:"Poppins",sans-serif;}
+.gate-box p{color:var(--gray);margin:0 0 14px;font-size:14px;}
+.gate-box input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:10px;}
+.gate-box button{width:100%;padding:11px;border:0;border-radius:999px;background:var(--teal);color:#fff;font-weight:600;font-size:15px;cursor:pointer;}
+.gate-box button:hover{background:var(--teal-dark);}
+.gate-note{font-size:11px!important;color:#94a3b8!important;margin-top:10px!important;}
+
+/* ---- Topbar ---- */
+.topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+.topbar-inner{max-width:920px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.logo{display:flex;align-items:center;gap:9px;font-family:"Poppins",sans-serif;font-weight:700;text-decoration:none;color:var(--ink);}
+.logo .mark{width:28px;height:28px;border-radius:8px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:13px;}
+.adm-tag{font-size:11px;font-weight:700;color:#92600a;background:#fffbeb;border:1px solid #fde68a;padding:3px 9px;border-radius:999px;}
+.topbar .links{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap;}
+.topbar .links a{font-size:14px;text-decoration:none;color:var(--gray);}
+.topbar .links a:hover{color:var(--ink);}
+
+/* ---- Section nav (anclas) ---- */
+.subnav{position:sticky;top:53px;z-index:40;background:var(--surface);border-bottom:1px solid var(--line);}
+.subnav-inner{max-width:920px;margin:0 auto;padding:8px 20px;display:flex;gap:8px;flex-wrap:wrap;}
+.subnav a{font-size:13px;font-weight:600;text-decoration:none;color:var(--teal-dark);
+  background:#ecfdf5;border:1px solid #99f6e4;padding:5px 11px;border-radius:999px;}
+
+/* ---- Banner aviso ---- */
+.notice{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;margin:16px 0;font-size:13px;color:#92600a;}
+
+/* ---- Markdown render ---- */
+.md{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:16px 0 28px;}
+.md h1{font-family:"Poppins",sans-serif;font-size:26px;margin:0 0 4px;}
+.md h2{font-family:"Poppins",sans-serif;font-size:20px;margin:26px 0 8px;padding-top:10px;border-top:1px solid var(--line);color:var(--teal-dark);}
+.md h3{font-size:16px;margin:18px 0 6px;}
+.md p{margin:8px 0;}
+.md a{color:var(--teal-dark);}
+.md ul,.md ol{margin:8px 0;padding-left:22px;}
+.md li{margin:3px 0;}
+.md blockquote{border-left:4px solid var(--amber);background:#fffdf5;margin:12px 0;padding:8px 14px;color:#475569;border-radius:0 8px 8px 0;}
+.md code{font-family:ui-monospace,Menlo,monospace;background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:.9em;}
+.md pre{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;}
+.md pre code{background:none;color:inherit;padding:0;}
+.md table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px;display:block;overflow-x:auto;}
+.md th,.md td{border:1px solid var(--line);padding:6px 9px;text-align:left;}
+.md thead th{background:var(--ink);color:#fff;}
+.md tbody tr:nth-child(even){background:var(--surface);}
+.md hr{border:0;border-top:1px solid var(--line);margin:20px 0;}
+
+/* ---- Catálogo (index admin) ---- */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:18px 0;}
+.cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;}
+.cat h3{margin:0 0 8px;font-family:"Poppins",sans-serif;}
+.cat .assets{list-style:none;padding:0;margin:0 0 12px;font-size:13px;}
+.cat .assets li{margin:3px 0;}
+.cat .ok{color:var(--green);} .cat .no{color:#cbd5e1;}
+.cat .actions{display:flex;gap:8px;flex-wrap:wrap;}
+.cat .btn{font-size:13px;font-weight:600;text-decoration:none;padding:7px 12px;border-radius:999px;}
+.cat .btn-p{background:var(--teal);color:#fff;} .cat .btn-g{background:#fff;border:1px solid var(--line);color:var(--ink);}
+footer.adm{color:var(--gray);font-size:12px;text-align:center;padding:24px;}
