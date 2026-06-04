@@ -58,8 +58,13 @@ python3 -m http.server 8000
 # Abrir http://localhost:8000/infographics/antibioticos.html  (infografía)
 ```
 
-Para publicar gratis: activar **GitHub Pages** apuntando a `/web` o mover su
-contenido a la raíz / `docs/`.
+**Publicar gratis (en vivo):** el repo ya trae el workflow
+`.github/workflows/pages.yml`. Solo activa **Settings → Pages → Source = "GitHub Actions"**
+y cada push a `web/` despliega el sitio automáticamente. La galería de infografías vive en
+`web/infographics/`.
+
+**¿Vender ClinDeck como activo?** Lee **`SALE.md`** (valoración honesta, dónde listarla,
+plan de 90 días para una valoración de ~$10k y checklist de traspaso).
 
 ---
 
