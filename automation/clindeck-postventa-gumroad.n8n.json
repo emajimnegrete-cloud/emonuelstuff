@@ -1,0 +1,195 @@
+{
+  "name": "ClinDeck · Post-venta Gumroad",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "gumroad-sale",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "6943f9c5-cd15-46c1-b880-e09cb252afb6",
+      "name": "Webhook · venta Gumroad",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        320
+      ],
+      "webhookId": "29dcba8a-1606-44be-8660-a09c60cfa5f1"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e1fdee1f-d18d-426b-a0f2-12491a50c794",
+              "name": "SHARED_SECRET",
+              "value": "REEMPLAZA_TOKEN_SECRETO",
+              "type": "string"
+            },
+            {
+              "id": "7f98c3f2-206e-4fbc-89e6-7905b9312871",
+              "name": "NOTION_CRM_DB",
+              "value": "REEMPLAZA_ID_BASE_COMPRADORES",
+              "type": "string"
+            },
+            {
+              "id": "48b1cf8b-4c66-480d-9b21-7b64f726eff4",
+              "name": "DISCOUNT_CODE",
+              "value": "GRACIAS15",
+              "type": "string"
+            },
+            {
+              "id": "58c5313e-a55c-4a75-98d5-3a5db6f04b41",
+              "name": "GUMROAD_URL",
+              "value": "https://gumroad.com/clindeck",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "40c8b80f-f526-49a0-955f-a028a1654cdc",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Recibe el \"ping\" de venta de Gumroad (form-urlencoded) y lo normaliza.\nconst it    = $input.first().json;\nconst body  = it.body  || {};\nconst query = it.query || {};\n\n// Verificación opcional: añade ?token=TU_SECRETO a la URL del ping en Gumroad.\nconst expected = it.SHARED_SECRET;\nif (expected && expected !== 'REEMPLAZA_TOKEN_SECRETO' && query.token !== expected) {\n  return []; // ignora pings sin el token correcto (anti-abuso)\n}\n\nconst email   = body.email || '';\nif (!email) return [];                       // sin email no hay nada que hacer\nconst name    = body.full_name || 'Cliente';\nconst product = body.product_name || 'Producto ClinDeck';\nconst cents   = parseInt(body.price || '0', 10);\nconst priceUSD = (isFinite(cents) ? cents / 100 : 0).toFixed(2);\nconst currency = (body.currency || 'usd').toUpperCase();\nconst saleId   = body.sale_id || '';\nconst date     = body.sale_timestamp || new Date().toISOString();\n\nreturn [{ json: {\n  email, name, product, priceUSD, currency, saleId, date,\n  NOTION_CRM_DB: it.NOTION_CRM_DB,\n  DISCOUNT_CODE: it.DISCOUNT_CODE,\n  GUMROAD_URL:   it.GUMROAD_URL,\n} }];"
+      },
+      "id": "f70696a3-3dcd-4116-bbd0-34e01b3714a7",
+      "name": "Validar y normalizar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        380,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "={{ $json.email }}",
+        "subject": "=¡Gracias por tu compra en ClinDeck! 🩺",
+        "emailType": "html",
+        "message": "=<div style=\"font-family:Inter,system-ui,sans-serif;color:#0F172A\"><p>Hola {{ $json.name }},</p><p>¡Gracias por comprar <b>{{ $json.product }}</b> en <b>ClinDeck</b>! 🩺 Tu descarga está en el correo de Gumroad y en tu biblioteca.</p><p><b>¿Te sirvió?</b> Déjame una reseña ⭐ en Gumroad — ayuda muchísimo a que más estudiantes lo encuentren.</p><p>🎁 Para tu próxima compra usa el código <b>{{ $json.DISCOUNT_CODE }}</b>. Mira todo el material en <a href=\"{{ $json.GUMROAD_URL }}\">{{ $json.GUMROAD_URL }}</a>.</p><p>Estudia con evidencia,<br/><b>ClinDeck</b></p><hr/><p style=\"font-size:12px;color:#64748B\">Material educativo. ⚕️ Compra: {{ $json.product }} · {{ $json.currency }} {{ $json.priceUSD }}</p></div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "246e8565-555d-4cad-b474-97ea56d50565",
+      "name": "Email · gracias + reseña",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        620,
+        200
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REEMPLAZA_ID_CRED_GMAIL",
+          "name": "Gmail ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ parent: { database_id: $json.NOTION_CRM_DB }, properties: { 'Nombre': { title: [ { text: { content: $json.name } } ] }, 'Email': { email: $json.email }, 'Producto': { rich_text: [ { text: { content: $json.product } } ] }, 'Precio USD': { number: Number($json.priceUSD) }, 'Fecha': { date: { start: $json.date } }, 'SaleID': { rich_text: [ { text: { content: $json.saleId } } ] }, 'Origen': { select: { name: 'Gumroad' } } } }) }}",
+        "options": {}
+      },
+      "id": "4651eb77-35a6-4f93-9e9f-f6424eb5367a",
+      "name": "Notion · alta comprador (CRM)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        440
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook · venta Gumroad": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Validar y normalizar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar y normalizar": {
+      "main": [
+        [
+          {
+            "node": "Email · gracias + reseña",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notion · alta comprador (CRM)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/La_Paz"
+  },
+  "pinData": {},
+  "tags": [
+    {
+      "name": "ClinDeck"
+    },
+    {
+      "name": "ventas"
+    }
+  ]
+}
