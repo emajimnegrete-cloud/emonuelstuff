@@ -1,0 +1,359 @@
+{
+  "name": "ClinDeck · Generador de Mazos (Claude → Notion)",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "event": "pageAddedToDatabase",
+        "databaseId": {
+          "__rl": true,
+          "value": "REEMPLAZA_ID_BASE_RECORDATORIOS",
+          "mode": "id"
+        },
+        "simple": true,
+        "options": {}
+      },
+      "id": "d1a2de97-3b53-4cc0-9657-7e8819811ee2",
+      "name": "Nueva tarea (Recordatorios)",
+      "type": "n8n-nodes-base.notionTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        320
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "09aeca40-7150-48e4-8504-d79b3589ebe1",
+              "name": "GITHUB_RAW_BASE",
+              "value": "https://raw.githubusercontent.com/emajimnegrete-cloud/emonuelstuff/claude/upbeat-ritchie-L4smP/content",
+              "type": "string"
+            },
+            {
+              "id": "885781cb-5367-4da2-94ef-7a2237e3c821",
+              "name": "FLASHCARDS_DB",
+              "value": "REEMPLAZA_ID_BASE_FLASHCARDS",
+              "type": "string"
+            },
+            {
+              "id": "2dae6183-6845-433a-ba4e-716c42f3b156",
+              "name": "ANTHROPIC_MODEL",
+              "value": "claude-opus-4-8",
+              "type": "string"
+            },
+            {
+              "id": "ea167a4e-c645-4f45-9a79-fde512ed7d9a",
+              "name": "MAX_CARDS",
+              "value": "30",
+              "type": "string"
+            },
+            {
+              "id": "031f4ba2-7a7b-4f16-a0da-c84e22936304",
+              "name": "SYSTEM_PROMPT",
+              "value": "Eres un generador de flashcards médicas para la marca 'ClinDeck'. A partir del contenido fuente (apuntes basados en evidencia), creas tarjetas de repaso espaciado claras, precisas y didácticas, bilingües cuando aporta valor (ES principal, EN entre paréntesis). REGLAS: (1) Cada tarjeta corresponde a UNA idea verificable tomada del contenido; NO inventes datos, dosis ni hechos que no estén en la fuente. (2) 'front' = pregunta concreta; 'back' = respuesta breve y correcta. (3) Prioriza coberturas, elección empírica, mnemónicos, perlas y banderas rojas. (4) Sin relleno ni ambigüedad. (5) Material educativo, no consejo clínico. Devuelve únicamente el objeto JSON pedido.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8f894e98-5f91-4ab8-a636-73e91ba92d59",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        140,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Lee la tarea recién creada en Recordatorios. Solo sigue si es \"Crear mazo\".\nconst it = $input.first().json;\nconst props = it.properties || {};\n\nconst readTitle = (p) => {\n  if (!p) return '';\n  if (Array.isArray(p.title)) return p.title.map(t => (t.plain_text || (t.text && t.text.content) || '')).join('');\n  if (typeof p === 'string') return p;\n  return '';\n};\nconst readSelect = (p) => (p && p.select && p.select.name) || (typeof p === 'string' ? p : '');\n\nconst title = readTitle(props['Tarea']) || it['Tarea'] || it.name || '';\nconst tipo  = readSelect(props['Tipo']) || it['Tipo'] || '';\n\n// Filtro: solo tareas de creación de mazo\nif (tipo !== 'Crear mazo' && !/crear mazo/i.test(title)) return [];\n\n// Extrae la materia del título: \"🃏 Crear mazo de Antibióticos para Parcial Infecto\"\nlet tema = '';\nconst m = title.match(/crear mazo de\\s+(.+?)\\s+para\\b/i) || title.match(/crear mazo de\\s+(.+)$/i);\nif (m) tema = m[1].trim();\nif (!tema) tema = readSelect(props['Materia']) || it['Materia'] || 'general';\n\n// slug de carpeta en content/<slug>/notes.md\nconst slug = tema.toLowerCase()\n  .normalize('NFD').replace(/[̀-ͯ]/g, '')\n  .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');\n\nreturn [{ json: {\n  taskPageId: it.id,\n  tema, slug, title,\n  GITHUB_RAW_BASE: it.GITHUB_RAW_BASE,\n  FLASHCARDS_DB:   it.FLASHCARDS_DB,\n  ANTHROPIC_MODEL: it.ANTHROPIC_MODEL,\n  MAX_CARDS:       it.MAX_CARDS,\n} }];"
+      },
+      "id": "bc42cb92-d1bb-44aa-82ee-1e0d30bcb332",
+      "name": "Parsear tarea",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        360,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.GITHUB_RAW_BASE }}/{{ $json.slug }}/notes.md",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "id": "f0635383-ad71-41c6-b153-e9d2c6bc51e5",
+      "name": "GitHub · notes.md",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: $('Config').first().json.ANTHROPIC_MODEL, max_tokens: 12000, thinking: { type: 'adaptive' }, system: [ { type: 'text', text: $('Config').first().json.SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } } ], output_config: { format: { type: 'json_schema', schema: { type: 'object', additionalProperties: false, required: ['cards'], properties: { cards: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['front','back'], properties: { front: { type: 'string' }, back: { type: 'string' } } } } } } } }, messages: [ { role: 'user', content: 'Tema: ' + $('Parsear tarea').item.json.tema + '\\n\\nGenera hasta ' + $('Config').first().json.MAX_CARDS + ' flashcards a partir de estos apuntes. Solo usa datos presentes en la fuente.\\n\\n--- FUENTE notes.md ---\\n' + $('GitHub · notes.md').item.json.data } ] }) }}",
+        "options": {}
+      },
+      "id": "d487c826-6162-4b7c-a50a-5fd9a3f768b5",
+      "name": "Claude · generar mazo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        320
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REEMPLAZA_ID_CRED_ANTHROPIC",
+          "name": "Anthropic x-api-key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Toma la respuesta de Claude (salida estructurada) y emite una carta por item.\nconst resp = $input.first().json;\nconst content = resp.content || [];\nlet txt = '';\nfor (const b of content) { if (b.type === 'text') txt += b.text; }\nlet cards = [];\ntry { cards = (JSON.parse(txt).cards) || []; }\ncatch (e) { throw new Error('No se pudo parsear el JSON de Claude: ' + e.message + ' | ' + txt.slice(0, 200)); }\nconst tema = $('Parsear tarea').item.json.tema;\nreturn cards.map(c => ({ json: { front: c.front, back: c.back, tema } }));"
+      },
+      "id": "4b28d4a2-919d-4f71-b817-9791007a0cda",
+      "name": "Extraer cartas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ parent: { database_id: $('Config').first().json.FLASHCARDS_DB }, properties: { 'Front': { title: [ { text: { content: $json.front } } ] }, 'Reverso': { rich_text: [ { text: { content: $json.back } } ] }, 'Materia': { select: { name: $json.tema } }, 'Estado': { select: { name: 'Por revisar' } } } }) }}",
+        "options": {}
+      },
+      "id": "5d98f569-83e7-4e16-aba1-b839044664a9",
+      "name": "Notion · crear flashcard",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        220
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Una sola salida: marcar la tarea como Hecho con el número de cartas creadas.\nconst resp = $input.first().json;\nconst content = resp.content || [];\nlet txt = '';\nfor (const b of content) { if (b.type === 'text') txt += b.text; }\nlet n = 0; try { n = ((JSON.parse(txt).cards) || []).length; } catch (e) {}\nreturn [{ json: { taskPageId: $('Parsear tarea').item.json.taskPageId, count: n } }];"
+      },
+      "id": "2be01626-4d1e-4a0f-ab25-9ce53de51f12",
+      "name": "Preparar update",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $json.taskPageId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ properties: { 'Estado': { select: { name: 'Hecho' } } } }) }}",
+        "options": {}
+      },
+      "id": "eade6066-1e18-494f-8f49-85e7a7949390",
+      "name": "Notion · marcar tarea Hecho",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        440
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Nueva tarea (Recordatorios)": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Parsear tarea",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parsear tarea": {
+      "main": [
+        [
+          {
+            "node": "GitHub · notes.md",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub · notes.md": {
+      "main": [
+        [
+          {
+            "node": "Claude · generar mazo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude · generar mazo": {
+      "main": [
+        [
+          {
+            "node": "Extraer cartas",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Preparar update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer cartas": {
+      "main": [
+        [
+          {
+            "node": "Notion · crear flashcard",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar update": {
+      "main": [
+        [
+          {
+            "node": "Notion · marcar tarea Hecho",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/La_Paz"
+  },
+  "pinData": {},
+  "tags": [
+    {
+      "name": "ClinDeck"
+    },
+    {
+      "name": "IA"
+    }
+  ]
+}
