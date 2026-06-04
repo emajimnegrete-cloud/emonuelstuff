@@ -42,7 +42,7 @@ flowchart LR
 |---|---|---|
 | **De qué repo/rama lee los apuntes** | nodo **Config** → `GITHUB_RAW_BASE` | Pega tu base `raw.githubusercontent.com/.../content` |
 | **A qué base de Notion escribe** | nodo **Config** → `FLASHCARDS_DB` | ID de tu base `Flashcards` |
-| **El modelo de Claude** | nodo **Config** → `ANTHROPIC_MODEL` | `claude-opus-4-8` (máx. calidad), `claude-sonnet-4-6` o `claude-haiku-4-5` (más barato) |
+| **El modelo de Claude** | nodo **Config** → `ANTHROPIC_MODEL` | Por defecto **`claude-haiku-4-5`** (modo prueba, ~2¢/mazo). Para producción: `claude-sonnet-4-6` o `claude-opus-4-8` (máx. calidad) |
 | **Cuántas cartas genera** | nodo **Config** → `MAX_CARDS` | p.ej. `20`, `40` |
 | **El tono/reglas de las flashcards** | nodo **Config** → `SYSTEM_PROMPT` | Edita las instrucciones (anti-alucinación, bilingüe, etc.) |
 | **El esquema de salida / campos** | nodo **Claude · generar mazo** → `JSON Body` | El `output_config.format.schema` (añade p.ej. `mnemonic`, `level`) |

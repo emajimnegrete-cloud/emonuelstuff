@@ -54,7 +54,7 @@
             {
               "id": "2dae6183-6845-433a-ba4e-716c42f3b156",
               "name": "ANTHROPIC_MODEL",
-              "value": "claude-opus-4-8",
+              "value": "claude-haiku-4-5",
               "type": "string"
             },
             {
