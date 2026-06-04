@@ -50,6 +50,23 @@
   footer{margin-top:14px; padding-top:8px; border-top:1px solid var(--line); font-size:9.5px; color:var(--gray); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
   footer b{color:var(--ink);}
   @media print{ body{background:#fff;} .page{box-shadow:none; margin:0; width:auto; padding:8mm;} @page{size:A4; margin:8mm;} .box,table{break-inside:avoid;} }
+
+  /* --- Atlas página 2 --- */
+  .legend2{display:flex;gap:14px;margin:8px 0 12px;font-size:11.5px;color:var(--gray);}
+  .legend2 .chip-n,.legend2 .chip-p{font-size:10px;}
+  .atlas{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .trace{border:1px solid var(--line);border-radius:9px;padding:8px 10px;break-inside:avoid;}
+  .trace .h{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px;}
+  .trace .h b{font-size:11.5px;} .trace .h .en{font-style:italic;color:var(--gray);font-weight:400;font-size:10px;}
+  .chip-n{font-size:9px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--cover);color:var(--cover-ink);}
+  .chip-p{font-size:9px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--no);color:var(--no-ink);}
+  .ecgpaper{width:100%;height:64px;border-radius:6px;overflow:hidden;
+    background-color:#fff5f5;
+    background-image:linear-gradient(#ffd9d9 1px,transparent 1px),linear-gradient(90deg,#ffd9d9 1px,transparent 1px);
+    background-size:8px 8px;}
+  .trace .cap{font-size:9.5px;color:var(--gray);margin-top:4px;}
+  .decide{margin-top:12px;background:#ecfdf5;border:1px solid #99f6e4;border-radius:10px;padding:10px 12px;font-size:10.5px;}
+  .decide b{color:var(--teal-dark);}
 </style>
 </head>
 <body>
@@ -166,5 +183,44 @@
   </footer>
 
 </div>
+
+<div class="page">
+  <div class="head">
+    <div class="title">
+      <div class="brand"><span class="mark">CD</span><span><span class="clin">Clin</span><span class="deck">Deck</span></span></div>
+      <h1 style="margin-top:6px">Atlas: ¿normal o patológico?</h1>
+      <div class="sub">Atlas: normal vs abnormal — recognise it at a glance</div>
+    </div>
+    <div class="badge">Pág. 2 · v1.1</div>
+  </div>
+
+  <div class="legend2">
+    <span><span class="chip-n">Normal</span> dentro de rango</span>
+    <span><span class="chip-p">Patológico</span> hallazgo que cambia la conducta</span>
+  </div>
+
+  <div class="atlas">
+<div class="trace"><div class="h"><b>Sinusal normal <span class="en">· Normal sinus</span></b><span class="chip-n">Normal</span></div><div class="ecgpaper"><svg viewBox="0 0 240 64" width="100%" height="64" preserveAspectRatio="none"><path d="M0.0,42.0 L4.0,42.0 L10.0,42.0 L14.0,37.0 L17.0,37.0 L20.0,42.0 L26.0,42.0 L28.0,45.0 L31.0,11.0 L34.0,49.0 L37.0,42.0 L46.0,42.0 L52.0,33.0 L58.0,33.0 L64.0,42.0 L72.0,42.0 L76.0,42.0 L82.0,42.0 L86.0,37.0 L89.0,37.0 L92.0,42.0 L98.0,42.0 L100.0,45.0 L103.0,11.0 L106.0,49.0 L109.0,42.0 L118.0,42.0 L124.0,33.0 L130.0,33.0 L136.0,42.0 L144.0,42.0 L148.0,42.0 L154.0,42.0 L158.0,37.0 L161.0,37.0 L164.0,42.0 L170.0,42.0 L172.0,45.0 L175.0,11.0 L178.0,49.0 L181.0,42.0 L190.0,42.0 L196.0,33.0 L202.0,33.0 L208.0,42.0 L216.0,42.0 L240.0,42.0" fill="none" stroke="#0f172a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="cap">🔎 P → QRS estrecho → T en cada ciclo; ritmo regular, todo en rango.</div></div>
+<div class="trace"><div class="h"><b>STEMI <span class="en">· ST elevation MI</span></b><span class="chip-p">Patológico</span></div><div class="ecgpaper"><svg viewBox="0 0 240 64" width="100%" height="64" preserveAspectRatio="none"><path d="M0.0,42.0 L4.0,42.0 L10.0,42.0 L14.0,38.0 L17.0,38.0 L20.0,42.0 L26.0,42.0 L28.0,45.0 L31.0,12.0 L34.0,49.0 L37.0,40.0 L41.0,30.0 L50.0,27.0 L58.0,30.0 L66.0,40.0 L72.0,42.0 L76.0,42.0 L82.0,42.0 L86.0,38.0 L89.0,38.0 L92.0,42.0 L98.0,42.0 L100.0,45.0 L103.0,12.0 L106.0,49.0 L109.0,40.0 L113.0,30.0 L122.0,27.0 L130.0,30.0 L138.0,40.0 L144.0,42.0 L148.0,42.0 L154.0,42.0 L158.0,38.0 L161.0,38.0 L164.0,42.0 L170.0,42.0 L172.0,45.0 L175.0,12.0 L178.0,49.0 L181.0,40.0 L185.0,30.0 L194.0,27.0 L202.0,30.0 L210.0,40.0 L216.0,42.0 L240.0,42.0" fill="none" stroke="#0f172a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="cap">🔎 ST elevado y convexo ('lápida') en derivaciones contiguas.</div></div>
+<div class="trace"><div class="h"><b>Fibrilación auricular <span class="en">· Atrial fibrillation</span></b><span class="chip-p">Patológico</span></div><div class="ecgpaper"><svg viewBox="0 0 240 64" width="100%" height="64" preserveAspectRatio="none"><path d="M0.0,43.0 L4.0,41.0 L8.0,43.0 L12.0,42.0 L16.0,43.0 L18.0,44.0 L20.0,12.0 L23.0,48.0 L25.0,42.0 L30.0,43.0 L36.0,41.0 L42.0,43.0 L48.0,42.0 L54.0,43.0 L68.0,44.0 L70.0,14.0 L73.0,49.0 L75.0,42.0 L80.0,42.0 L86.0,43.0 L92.0,41.0 L98.0,43.0 L104.0,42.0 L110.0,43.0 L116.0,44.0 L118.0,12.0 L121.0,48.0 L123.0,42.0 L128.0,43.0 L134.0,42.0 L140.0,43.0 L146.0,41.0 L152.0,43.0 L158.0,42.0 L164.0,43.0 L170.0,44.0 L172.0,13.0 L175.0,49.0 L177.0,42.0 L182.0,43.0 L188.0,41.0 L194.0,43.0 L200.0,42.0 L206.0,43.0 L212.0,42.0 L218.0,44.0 L220.0,12.0 L223.0,48.0 L225.0,42.0 L232.0,43.0 L240.0,42.0" fill="none" stroke="#0f172a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="cap">🔎 Sin ondas P; R-R irregularmente irregular.</div></div>
+<div class="trace"><div class="h"><b>BAV completo (3.º) <span class="en">· Complete heart block</span></b><span class="chip-p">Patológico</span></div><div class="ecgpaper"><svg viewBox="0 0 240 64" width="100%" height="64" preserveAspectRatio="none"><path d="M0.0,42.0 L10.0,42.0 L14.0,37.0 L18.0,42.0 L24.0,42.0 L28.0,44.0 L30.0,12.0 L33.0,49.0 L36.0,42.0 L44.0,42.0 L46.0,37.0 L50.0,42.0 L56.0,42.0 L74.0,42.0 L78.0,37.0 L82.0,42.0 L88.0,42.0 L106.0,44.0 L110.0,12.0 L113.0,49.0 L116.0,42.0 L138.0,42.0 L142.0,37.0 L146.0,42.0 L152.0,42.0 L170.0,42.0 L174.0,37.0 L178.0,42.0 L184.0,42.0 L188.0,44.0 L190.0,12.0 L193.0,49.0 L196.0,42.0 L204.0,42.0 L206.0,37.0 L210.0,42.0 L216.0,42.0 L240.0,42.0" fill="none" stroke="#0f172a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="cap">🔎 P y QRS disociados: cada uno a su propio ritmo.</div></div>
+<div class="trace"><div class="h"><b>Hiperpotasemia <span class="en">· Hyperkalemia</span></b><span class="chip-p">Patológico</span></div><div class="ecgpaper"><svg viewBox="0 0 240 64" width="100%" height="64" preserveAspectRatio="none"><path d="M0.0,42.0 L4.0,42.0 L10.0,42.0 L14.0,39.0 L17.0,39.0 L20.0,42.0 L26.0,42.0 L28.0,45.0 L31.0,14.0 L34.0,49.0 L37.0,42.0 L44.0,42.0 L51.0,16.0 L54.0,16.0 L57.0,42.0 L72.0,42.0 L76.0,42.0 L82.0,42.0 L86.0,39.0 L89.0,39.0 L92.0,42.0 L98.0,42.0 L100.0,45.0 L103.0,14.0 L106.0,49.0 L109.0,42.0 L116.0,42.0 L123.0,16.0 L126.0,16.0 L129.0,42.0 L144.0,42.0 L148.0,42.0 L154.0,42.0 L158.0,39.0 L161.0,39.0 L164.0,42.0 L170.0,42.0 L172.0,45.0 L175.0,14.0 L178.0,49.0 L181.0,42.0 L188.0,42.0 L195.0,16.0 L198.0,16.0 L201.0,42.0 L216.0,42.0 L240.0,42.0" fill="none" stroke="#0f172a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="cap">🔎 Ondas T altas y picudas, de base estrecha.</div></div>
+<div class="trace"><div class="h"><b>Taquicardia ventricular <span class="en">· Ventricular tachycardia</span></b><span class="chip-p">Patológico</span></div><div class="ecgpaper"><svg viewBox="0 0 240 64" width="100%" height="64" preserveAspectRatio="none"><path d="M0.0,42.0 L8.0,18.0 L20.0,46.0 L30.0,20.0 L44.0,48.0 L56.0,18.0 L70.0,46.0 L82.0,20.0 L96.0,48.0 L108.0,18.0 L122.0,46.0 L134.0,20.0 L148.0,48.0 L160.0,18.0 L174.0,46.0 L186.0,20.0 L200.0,48.0 L212.0,18.0 L226.0,46.0 L240.0,30.0" fill="none" stroke="#0f172a" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="cap">🔎 QRS ancho y regular, sin ondas P.</div></div>
+  </div>
+
+  <div class="decide">
+    <b>Cómo decidir:</b> recorre los 8 pasos. <b>Es normal</b> si — ritmo <b>sinusal</b>,
+    FC <b>60–100</b>, PR <b>120–200 ms</b>, QRS <b>&lt;120 ms</b>, eje <b>−30° a +90°</b>,
+    <b>ST isoeléctrico</b>, sin <b>Q patológica</b>, T concordante y <b>QTc &lt;450/460 ms</b>.
+    <b>Basta UN</b> hallazgo fuera de rango para llamarlo patológico y buscar el patrón.
+    ⚠️ Un ECG normal <b>no descarta</b> cardiopatía si la clínica es sospechosa.
+  </div>
+
+  <footer>
+    <span><b>Fuentes:</b> AHA/ACCF/HRS · 4ª Def. Universal de IM 2018 · ACC/AHA/HRS 2018.</span>
+    <span><b>⚕️ Educativo</b> — trazados esquemáticos. · <b>clindeck</b> · u/ClinDeck</span>
+  </footer>
+</div>
+
 </body>
 </html>

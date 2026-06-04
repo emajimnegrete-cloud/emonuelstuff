@@ -1,8 +1,8 @@
-# ECG — lectura sistemática y patrones clave
-*ECG — systematic reading & key patterns*
+# ECG — lectura sistemática, normal vs patológico
+*ECG — systematic reading, normal vs abnormal*
 
 > **Tema / Topic:** Electrocardiografía · **Público:** estudiantes y residentes · **Idioma:** ES/EN
-> **Versión:** 1.0 · **Nivel de evidencia:** estándares AHA/ACCF/HRS + 4ª Definición Universal de IM — ver `sources.md`
+> **Versión:** 1.1 · **Nivel de evidencia:** estándares AHA/ACCF/HRS + 4ª Definición Universal de IM — ver `sources.md`
 > ⚕️ **Educativo.** El ECG se interpreta SIEMPRE en contexto clínico. Compara con ECG previos,
 > correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "normal".
 
@@ -27,12 +27,65 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 
 ---
 
-## 2. Frecuencia y ritmo / Rate & rhythm
+## 2. ECG NORMAL: valores de referencia / Normal ECG reference values
+
+Memoriza estos rangos: **son la "regla"** contra la que comparas todo lo demás.
+
+| Parámetro / Parameter | Normal | Se considera anormal si… |
+|---|---|---|
+| **Frecuencia** | 60–100 lpm | <60 (bradicardia) · >100 (taquicardia) |
+| **Ritmo** | Sinusal: P➕ en I, II, aVF y P➖ en aVR, **1 P por QRS** | Sin P, P➖ donde debería ser ➕, P no relacionada con QRS |
+| **Onda P** | <120 ms ancho y <2,5 mm alto (II) | P ancha/bífida (agrand. izq.) o alta y picuda (agrand. der.) |
+| **Intervalo PR** | 120–200 ms (3–5 cuadritos) | >200 ms (BAV) · <120 ms (preexcitación/WPW) |
+| **QRS** | <120 ms (idealmente <110) | ≥120 ms → bloqueo de rama, ritmo ventricular, hiperK |
+| **Eje** | −30° a +90° | <−30° (izq.) · >+90° (der.) · extremo |
+| **Onda Q** | Pequeña/ausente (<40 ms y <25 % de la R) | Q **ancha (≥40 ms)** o profunda → necrosis previa |
+| **Segmento ST** | Isoeléctrico (±1 mm respecto a la línea de base) | Elevación o descenso ≥1 mm → isquemia/lesión |
+| **Onda T** | Concordante con el QRS, asimétrica; ➕ en la mayoría (puede ser ➖ en aVR, V1 y a veces III) | T **invertidas** nuevas, **picudas** (hiperK) o aplanadas |
+| **QT / QTc** | QTc <450 ms (♂) / <460 ms (♀) | >500 ms → alto riesgo de torsade |
+| **Progresión de R (precordiales)** | R crece y S decrece de V1→V6; transición en V3–V4 | Mala progresión de R, R alta en V1 (posterior/HVD) |
+
+> **Regla mental:** *"ritmo sinusal, FC 60–100, PR e intervalos en rango, sin Q ni ST ni T raras, QTc normal"* = **ECG normal**.
+
+---
+
+## 3. ¿Normal o patológico? Cómo decidir / Normal or abnormal? How to decide
+
+**Algoritmo simple:** recorre los 8 pasos; **si TODOS caen en el rango de la tabla §2 y NO hay ninguna bandera de abajo → ECG normal.** Basta **un** hallazgo fuera de rango para llamarlo **anormal** y entonces localizas el patrón.
+
+### Lo que convierte un ECG en patológico *(any of these = abnormal)*
+- ❌ **No es sinusal** (sin P, P invertida, FA/flutter, ritmo de la unión o ventricular).
+- ❌ **FC <60 o >100** sin causa fisiológica.
+- ❌ **PR >200 ms** (bloqueo AV) o **<120 ms con delta** (preexcitación).
+- ❌ **QRS ≥120 ms** (bloqueo de rama, ritmo ventricular, hiperK, marcapasos).
+- ❌ **Onda Q patológica** (necrosis antigua).
+- ❌ **Segmento ST elevado o descendido ≥1 mm** en derivaciones contiguas.
+- ❌ **Onda T invertida nueva, picuda o aplanada** anormal.
+- ❌ **QTc >450–460 ms** (y sobre todo >500 ms).
+- ❌ **Criterios de hipertrofia/agrandamiento** (Sokolow-Lyon, P mitral/pulmonale).
+
+### Tabla rápida: rasgo normal vs ejemplo patológico
+| Rasgo | Normal | Patológico (ejemplo) → significado |
+|---|---|---|
+| **Ritmo** | Sinusal regular | Irregular sin P → **FA** |
+| **Conducción** | PR 120–200 fijo | PR que se alarga y "cae" → **Mobitz I**; P y QRS disociados → **BAV completo** |
+| **QRS** | Estrecho <120 ms | Ancho con rSR' en V1 → **BRD**; ancho mellado en V6 → **BRI** |
+| **ST** | Isoeléctrico | Elevado convexo → **STEMI**; descendido → **isquemia** |
+| **Onda T** | Asimétrica, concordante | **Picuda** → **hiperK**; **invertida** → isquemia/sobrecarga |
+| **QT** | QTc <450/460 | QTc >500 → riesgo de **torsade** |
+
+> ⚠️ **Importante:** un **ECG normal NO descarta** cardiopatía si la clínica es sospechosa
+> (angina, síncope). Repite el ECG, compáralo con previos y correlaciona con troponinas/clínica.
+
+*(Ejemplos visuales de cada trazado: ver la infografía `web/infographics/ecg.html`, página 2 — "Atlas: normal vs patológico".)*
+
+---
+
+## 4. Frecuencia y ritmo / Rate & rhythm
 
 ### Calcular la frecuencia *(Rate)*
 - **Regla 300:** 300 ÷ (nº de cuadros **grandes** entre dos R) → `300, 150, 100, 75, 60, 50`.
 - **Regla de los 6 s:** cuenta QRS en 6 s (30 cuadros grandes) × 10 (útil si es **irregular**).
-- Normal **60–100 lpm**; <60 bradicardia; >100 taquicardia.
 
 ### Definir el ritmo *(Rhythm)*
 - ¿**Regular** o irregular? ¿Onda **P** antes de **cada** QRS y QRS tras cada P?
@@ -44,7 +97,7 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 
 ---
 
-## 3. Eje e intervalos / Axis & intervals
+## 5. Eje e intervalos / Axis & intervals
 
 ### Eje *(Axis)* — método rápido con I y aVF
 | Lead I | aVF | Eje |
@@ -61,7 +114,7 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 
 ---
 
-## 4. Isquemia e infarto / Ischemia & infarction
+## 6. Isquemia e infarto / Ischemia & infarction
 
 ### Cambios y su significado
 - **Elevación del ST** (en ≥2 derivaciones contiguas) → **lesión transmural aguda (STEMI)**.
@@ -84,7 +137,7 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 
 ---
 
-## 5. Arritmias y bloqueos / Arrhythmias & blocks
+## 7. Arritmias y bloqueos / Arrhythmias & blocks
 
 ### Bloqueos AV *(AV blocks)*
 - **1.º grado:** PR **largo fijo** (>200 ms), todas las P conducen.
@@ -105,7 +158,7 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 
 ---
 
-## 6. Perlas clínicas / Clinical pearls
+## 8. Perlas clínicas / Clinical pearls
 
 - **Lee siempre igual** (los 8 pasos): la sistemática evita errores más que el "ojo clínico".
 - **Compara con un ECG previo** — un BRI o una Q pueden ser **viejos**.
@@ -114,7 +167,7 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 - **Sgarbossa** ayuda a leer isquemia cuando hay **BRI** o marcapasos.
 - **"Tiempo es músculo":** ante STEMI, la lectura rápida activa el cateterismo.
 
-## 7. Banderas rojas / Red flags
+## 9. Banderas rojas / Red flags
 
 - 🚩 **Elevación del ST** en derivaciones contiguas → activar protocolo STEMI.
 - 🚩 **BRI nuevo** con dolor torácico → trátalo como equivalente de STEMI hasta descartar.
@@ -125,7 +178,7 @@ Lee **siempre en el mismo orden** para no saltarte nada:
 
 ---
 
-## 8. Para la versión "explica-fácil" (pacientes) / Patient-friendly
+## 10. Para la versión "explica-fácil" (pacientes) / Patient-friendly
 
 - "El ECG mira la **actividad eléctrica** del corazón, no lo 'tapado' de las arterias directamente."
 - "Un ECG normal **no descarta** un problema del corazón si tienes síntomas — pueden hacer falta más pruebas."

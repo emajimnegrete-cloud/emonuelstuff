@@ -14,11 +14,11 @@
   <div class="subnav"><div class="subnav-inner"><a href="../infographics/ecg.html" target="_blank">🖼️ Infografía ↗</a> <a href="#apuntes">📝 Apuntes</a> <a href="#mnemonicos">🧠 Mnemónicos</a> <a href="#flashcards">🃏 Flashcards</a> <a href="#fuentes">📚 Fuentes</a></div></div>
   <div class="wrap">
     <div class="notice">👁️ Vista privada — así se ve TODO lo que ofreces en este tema. Los compradores reciben esto (PDF/Anki); aquí lo revisas tú.</div>
-    <section id="apuntes" class="md"><h1>ECG — lectura sistemática y patrones clave</h1>
-<p><em>ECG — systematic reading &amp; key patterns</em></p>
+    <section id="apuntes" class="md"><h1>ECG — lectura sistemática, normal vs patológico</h1>
+<p><em>ECG — systematic reading, normal vs abnormal</em></p>
 <blockquote>
 <p><strong>Tema / Topic:</strong> Electrocardiografía · <strong>Público:</strong> estudiantes y residentes · <strong>Idioma:</strong> ES/EN
-<strong>Versión:</strong> 1.0 · <strong>Nivel de evidencia:</strong> estándares AHA/ACCF/HRS + 4ª Definición Universal de IM — ver <code>sources.md</code>
+<strong>Versión:</strong> 1.1 · <strong>Nivel de evidencia:</strong> estándares AHA/ACCF/HRS + 4ª Definición Universal de IM — ver <code>sources.md</code>
 ⚕️ <strong>Educativo.</strong> El ECG se interpreta SIEMPRE en contexto clínico. Compara con ECG previos,
 correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "normal".</p>
 </blockquote>
@@ -40,12 +40,145 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 <p>Velocidad estándar 25 mm/s, 10 mm/mV. Cuadro chico = <strong>0,04 s</strong> (40 ms); cuadro grande = <strong>0,20 s</strong> (200 ms).</p>
 </blockquote>
 <hr />
-<h2>2. Frecuencia y ritmo / Rate &amp; rhythm</h2>
+<h2>2. ECG NORMAL: valores de referencia / Normal ECG reference values</h2>
+<p>Memoriza estos rangos: <strong>son la "regla"</strong> contra la que comparas todo lo demás.</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro / Parameter</th>
+<th>Normal</th>
+<th>Se considera anormal si…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frecuencia</strong></td>
+<td>60–100 lpm</td>
+<td>&lt;60 (bradicardia) · &gt;100 (taquicardia)</td>
+</tr>
+<tr>
+<td><strong>Ritmo</strong></td>
+<td>Sinusal: P➕ en I, II, aVF y P➖ en aVR, <strong>1 P por QRS</strong></td>
+<td>Sin P, P➖ donde debería ser ➕, P no relacionada con QRS</td>
+</tr>
+<tr>
+<td><strong>Onda P</strong></td>
+<td>&lt;120 ms ancho y &lt;2,5 mm alto (II)</td>
+<td>P ancha/bífida (agrand. izq.) o alta y picuda (agrand. der.)</td>
+</tr>
+<tr>
+<td><strong>Intervalo PR</strong></td>
+<td>120–200 ms (3–5 cuadritos)</td>
+<td>&gt;200 ms (BAV) · &lt;120 ms (preexcitación/WPW)</td>
+</tr>
+<tr>
+<td><strong>QRS</strong></td>
+<td>&lt;120 ms (idealmente &lt;110)</td>
+<td>≥120 ms → bloqueo de rama, ritmo ventricular, hiperK</td>
+</tr>
+<tr>
+<td><strong>Eje</strong></td>
+<td>−30° a +90°</td>
+<td>&lt;−30° (izq.) · &gt;+90° (der.) · extremo</td>
+</tr>
+<tr>
+<td><strong>Onda Q</strong></td>
+<td>Pequeña/ausente (&lt;40 ms y &lt;25 % de la R)</td>
+<td>Q <strong>ancha (≥40 ms)</strong> o profunda → necrosis previa</td>
+</tr>
+<tr>
+<td><strong>Segmento ST</strong></td>
+<td>Isoeléctrico (±1 mm respecto a la línea de base)</td>
+<td>Elevación o descenso ≥1 mm → isquemia/lesión</td>
+</tr>
+<tr>
+<td><strong>Onda T</strong></td>
+<td>Concordante con el QRS, asimétrica; ➕ en la mayoría (puede ser ➖ en aVR, V1 y a veces III)</td>
+<td>T <strong>invertidas</strong> nuevas, <strong>picudas</strong> (hiperK) o aplanadas</td>
+</tr>
+<tr>
+<td><strong>QT / QTc</strong></td>
+<td>QTc &lt;450 ms (♂) / &lt;460 ms (♀)</td>
+<td>&gt;500 ms → alto riesgo de torsade</td>
+</tr>
+<tr>
+<td><strong>Progresión de R (precordiales)</strong></td>
+<td>R crece y S decrece de V1→V6; transición en V3–V4</td>
+<td>Mala progresión de R, R alta en V1 (posterior/HVD)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Regla mental:</strong> <em>"ritmo sinusal, FC 60–100, PR e intervalos en rango, sin Q ni ST ni T raras, QTc normal"</em> = <strong>ECG normal</strong>.</p>
+</blockquote>
+<hr />
+<h2>3. ¿Normal o patológico? Cómo decidir / Normal or abnormal? How to decide</h2>
+<p><strong>Algoritmo simple:</strong> recorre los 8 pasos; <strong>si TODOS caen en el rango de la tabla §2 y NO hay ninguna bandera de abajo → ECG normal.</strong> Basta <strong>un</strong> hallazgo fuera de rango para llamarlo <strong>anormal</strong> y entonces localizas el patrón.</p>
+<h3>Lo que convierte un ECG en patológico <em>(any of these = abnormal)</em></h3>
+<ul>
+<li>❌ <strong>No es sinusal</strong> (sin P, P invertida, FA/flutter, ritmo de la unión o ventricular).</li>
+<li>❌ <strong>FC &lt;60 o &gt;100</strong> sin causa fisiológica.</li>
+<li>❌ <strong>PR &gt;200 ms</strong> (bloqueo AV) o <strong>&lt;120 ms con delta</strong> (preexcitación).</li>
+<li>❌ <strong>QRS ≥120 ms</strong> (bloqueo de rama, ritmo ventricular, hiperK, marcapasos).</li>
+<li>❌ <strong>Onda Q patológica</strong> (necrosis antigua).</li>
+<li>❌ <strong>Segmento ST elevado o descendido ≥1 mm</strong> en derivaciones contiguas.</li>
+<li>❌ <strong>Onda T invertida nueva, picuda o aplanada</strong> anormal.</li>
+<li>❌ <strong>QTc &gt;450–460 ms</strong> (y sobre todo &gt;500 ms).</li>
+<li>❌ <strong>Criterios de hipertrofia/agrandamiento</strong> (Sokolow-Lyon, P mitral/pulmonale).</li>
+</ul>
+<h3>Tabla rápida: rasgo normal vs ejemplo patológico</h3>
+<table>
+<thead>
+<tr>
+<th>Rasgo</th>
+<th>Normal</th>
+<th>Patológico (ejemplo) → significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ritmo</strong></td>
+<td>Sinusal regular</td>
+<td>Irregular sin P → <strong>FA</strong></td>
+</tr>
+<tr>
+<td><strong>Conducción</strong></td>
+<td>PR 120–200 fijo</td>
+<td>PR que se alarga y "cae" → <strong>Mobitz I</strong>; P y QRS disociados → <strong>BAV completo</strong></td>
+</tr>
+<tr>
+<td><strong>QRS</strong></td>
+<td>Estrecho &lt;120 ms</td>
+<td>Ancho con rSR' en V1 → <strong>BRD</strong>; ancho mellado en V6 → <strong>BRI</strong></td>
+</tr>
+<tr>
+<td><strong>ST</strong></td>
+<td>Isoeléctrico</td>
+<td>Elevado convexo → <strong>STEMI</strong>; descendido → <strong>isquemia</strong></td>
+</tr>
+<tr>
+<td><strong>Onda T</strong></td>
+<td>Asimétrica, concordante</td>
+<td><strong>Picuda</strong> → <strong>hiperK</strong>; <strong>invertida</strong> → isquemia/sobrecarga</td>
+</tr>
+<tr>
+<td><strong>QT</strong></td>
+<td>QTc &lt;450/460</td>
+<td>QTc &gt;500 → riesgo de <strong>torsade</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Importante:</strong> un <strong>ECG normal NO descarta</strong> cardiopatía si la clínica es sospechosa
+(angina, síncope). Repite el ECG, compáralo con previos y correlaciona con troponinas/clínica.</p>
+</blockquote>
+<p><em>(Ejemplos visuales de cada trazado: ver la infografía <code>web/infographics/ecg.html</code>, página 2 — "Atlas: normal vs patológico".)</em></p>
+<hr />
+<h2>4. Frecuencia y ritmo / Rate &amp; rhythm</h2>
 <h3>Calcular la frecuencia <em>(Rate)</em></h3>
 <ul>
 <li><strong>Regla 300:</strong> 300 ÷ (nº de cuadros <strong>grandes</strong> entre dos R) → <code>300, 150, 100, 75, 60, 50</code>.</li>
 <li><strong>Regla de los 6 s:</strong> cuenta QRS en 6 s (30 cuadros grandes) × 10 (útil si es <strong>irregular</strong>).</li>
-<li>Normal <strong>60–100 lpm</strong>; &lt;60 bradicardia; &gt;100 taquicardia.</li>
 </ul>
 <h3>Definir el ritmo <em>(Rhythm)</em></h3>
 <ul>
@@ -57,7 +190,7 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 <li><strong>TV:</strong> taquicardia <strong>regular de QRS ancho</strong> → trátala como TV hasta demostrar lo contrario.</li>
 </ul>
 <hr />
-<h2>3. Eje e intervalos / Axis &amp; intervals</h2>
+<h2>5. Eje e intervalos / Axis &amp; intervals</h2>
 <h3>Eje <em>(Axis)</em> — método rápido con I y aVF</h3>
 <table>
 <thead>
@@ -97,7 +230,7 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 <li><strong>QTc</strong> (Bazett = QT/√RR): normal <strong>&lt;450 ms (H) / &lt;460 ms (M)</strong>; <strong>&gt;500 ms</strong> = alto riesgo de torsade.</li>
 </ul>
 <hr />
-<h2>4. Isquemia e infarto / Ischemia &amp; infarction</h2>
+<h2>6. Isquemia e infarto / Ischemia &amp; infarction</h2>
 <h3>Cambios y su significado</h3>
 <ul>
 <li><strong>Elevación del ST</strong> (en ≥2 derivaciones contiguas) → <strong>lesión transmural aguda (STEMI)</strong>.</li>
@@ -152,7 +285,7 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 🚩 En IM <strong>inferior</strong>, pide <strong>V4R</strong>: si hay infarto de <strong>VD</strong>, evita nitratos (precarga-dependiente).</p>
 </blockquote>
 <hr />
-<h2>5. Arritmias y bloqueos / Arrhythmias &amp; blocks</h2>
+<h2>7. Arritmias y bloqueos / Arrhythmias &amp; blocks</h2>
 <h3>Bloqueos AV <em>(AV blocks)</em></h3>
 <ul>
 <li><strong>1.º grado:</strong> PR <strong>largo fijo</strong> (&gt;200 ms), todas las P conducen.</li>
@@ -174,7 +307,7 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 <li><strong>Pericarditis:</strong> elevación ST <strong>difusa, cóncava</strong> + descenso del PR.</li>
 </ul>
 <hr />
-<h2>6. Perlas clínicas / Clinical pearls</h2>
+<h2>8. Perlas clínicas / Clinical pearls</h2>
 <ul>
 <li><strong>Lee siempre igual</strong> (los 8 pasos): la sistemática evita errores más que el "ojo clínico".</li>
 <li><strong>Compara con un ECG previo</strong> — un BRI o una Q pueden ser <strong>viejos</strong>.</li>
@@ -183,7 +316,7 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 <li><strong>Sgarbossa</strong> ayuda a leer isquemia cuando hay <strong>BRI</strong> o marcapasos.</li>
 <li><strong>"Tiempo es músculo":</strong> ante STEMI, la lectura rápida activa el cateterismo.</li>
 </ul>
-<h2>7. Banderas rojas / Red flags</h2>
+<h2>9. Banderas rojas / Red flags</h2>
 <ul>
 <li>🚩 <strong>Elevación del ST</strong> en derivaciones contiguas → activar protocolo STEMI.</li>
 <li>🚩 <strong>BRI nuevo</strong> con dolor torácico → trátalo como equivalente de STEMI hasta descartar.</li>
@@ -193,7 +326,7 @@ correlaciona con síntomas y nunca descartes un síndrome coronario por un ECG "
 <li>🚩 <strong>Taquicardia de QRS ancho inestable</strong> → cardioversión, no demores con dudas diagnósticas.</li>
 </ul>
 <hr />
-<h2>8. Para la versión "explica-fácil" (pacientes) / Patient-friendly</h2>
+<h2>10. Para la versión "explica-fácil" (pacientes) / Patient-friendly</h2>
 <ul>
 <li>"El ECG mira la <strong>actividad eléctrica</strong> del corazón, no lo 'tapado' de las arterias directamente."</li>
 <li>"Un ECG normal <strong>no descarta</strong> un problema del corazón si tienes síntomas — pueden hacer falta más pruebas."</li>
