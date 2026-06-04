@@ -1,0 +1,431 @@
+{
+  "name": "ClinDeck · Study Bot (Notion)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "triggerAtHour": 7,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "aaccd684-d108-4428-a39e-b55683e7bcc7",
+      "name": "Cada día 7:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "959e8d1f-8093-47a7-8560-3ed6c93db3d3",
+              "name": "EXAMS_DB",
+              "value": "REEMPLAZA_ID_BASE_EXAMENES",
+              "type": "string"
+            },
+            {
+              "id": "5e044b29-ab3e-4c1a-a64b-d0810bc91de7",
+              "name": "DECKS_DB",
+              "value": "REEMPLAZA_ID_BASE_MAZOS",
+              "type": "string"
+            },
+            {
+              "id": "5291a1a3-3630-4946-9a63-b4a0844c945b",
+              "name": "REMINDERS_DB",
+              "value": "REEMPLAZA_ID_BASE_RECORDATORIOS",
+              "type": "string"
+            },
+            {
+              "id": "915f98bf-54a7-463c-9613-524609cff0e2",
+              "name": "EMAIL_TO",
+              "value": "emanuel.jimenez@ucb.edu.bo",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a58991fd-1438-4d85-b5e7-c2937d35ceb2",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.notion.com/v1/databases/{{ $('Config').first().json.EXAMS_DB }}/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ filter: { property: 'Fecha', date: { on_or_after: $now.toFormat('yyyy-MM-dd') } }, sorts: [ { property: 'Fecha', direction: 'ascending' } ], page_size: 100 }) }}",
+        "options": {}
+      },
+      "id": "7dfb8e62-db86-4a47-8e97-457163bf082f",
+      "name": "Notion · Exámenes",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        200
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.notion.com/v1/databases/{{ $('Config').first().json.DECKS_DB }}/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ filter: { property: 'Estado', select: { does_not_equal: 'Listo' } }, page_size: 100 }) }}",
+        "options": {}
+      },
+      "id": "25361a13-d2b8-4039-b060-ac4595e68401",
+      "name": "Notion · Mazos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        620,
+        200
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.notion.com/v1/databases/{{ $('Config').first().json.REMINDERS_DB }}/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ filter: { property: 'Fecha', date: { on_or_after: $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') } }, page_size: 100 }) }}",
+        "options": {}
+      },
+      "id": "7320ad9d-5e6c-4da0-9514-1b5e60348be0",
+      "name": "Notion · Recordatorios",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        840,
+        200
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// === ClinDeck Study Bot · Planificador ===\n// Lee Exámenes/Mazos/Recordatorios de Notion, calcula días restantes,\n// genera tareas (estudiar, crear mazo, día de examen) y arma el resumen diario.\n\nconst thresholds = [30, 14, 7, 3, 1]; // días antes del examen que disparan recordatorio\n\n// Nombres de propiedades en TUS bases de Notion. Edítalos si los llamas distinto.\nconst PROP = {\n  examTitle: 'Examen', examDate: 'Fecha', examDaysLeft: 'Días restantes', examSubject: 'Materia',\n  deckSubject: 'Materia', deckStatus: 'Estado',\n  taskTitle: 'Tarea',\n};\n\nconst startOfDay = (d) => { const x = new Date(d); x.setHours(0,0,0,0); return x; };\nconst today = startOfDay(new Date());\nconst fmt = (d) => startOfDay(d).toISOString().slice(0,10);\nconst daysBetween = (a, b) => Math.round((startOfDay(a) - startOfDay(b)) / 86400000);\n\nconst txt = (prop) => {\n  if (!prop) return '';\n  if (prop.type === 'title') return (prop.title[0] && prop.title[0].plain_text) || '';\n  if (prop.type === 'rich_text') return (prop.rich_text[0] && prop.rich_text[0].plain_text) || '';\n  if (prop.type === 'select') return (prop.select && prop.select.name) || '';\n  if (prop.type === 'status') return (prop.status && prop.status.name) || '';\n  return '';\n};\nconst dateOf = (prop) => (prop && prop.date && prop.date.start) || null;\n\nconst exams     = ($('Notion · Exámenes').first().json.results) || [];\nconst decks     = ($('Notion · Mazos').first().json.results) || [];\nconst reminders = ($('Notion · Recordatorios').first().json.results) || [];\n\n// Recordatorios ya existentes (dedupe por título)\nconst existing = new Set(reminders.map(r => txt(r.properties[PROP.taskTitle])));\n// Materias que YA tienen un mazo \"Listo\"\nconst readySubjects = new Set(\n  decks.filter(d => txt(d.properties[PROP.deckStatus]).toLowerCase() === 'listo')\n       .map(d => txt(d.properties[PROP.deckSubject]).toLowerCase())\n);\n\nconst examUpdates = [];\nconst tasksToCreate = [];\n\nfor (const ex of exams) {\n  const name = txt(ex.properties[PROP.examTitle]) || 'Examen';\n  const subject = txt(ex.properties[PROP.examSubject]) || name;\n  const ds = dateOf(ex.properties[PROP.examDate]);\n  if (!ds) continue;\n  const daysLeft = daysBetween(ds, today);\n  if (daysLeft < 0) continue;\n\n  examUpdates.push({ pageId: ex.id, daysLeft, name });\n\n  for (const t of thresholds) {\n    if (daysLeft === t) {\n      const title = `📕 Estudiar para ${name} (faltan ${t} días)`;\n      if (!existing.has(title)) tasksToCreate.push({ title, date: fmt(today), type: 'Estudiar' });\n    }\n  }\n  if (daysLeft <= 14 && !readySubjects.has(subject.toLowerCase())) {\n    const title = `🃏 Crear mazo de ${subject} para ${name}`;\n    if (!existing.has(title)) tasksToCreate.push({ title, date: fmt(today), type: 'Crear mazo' });\n  }\n  if (daysLeft === 0) {\n    const title = `🚨 HOY: ${name}`;\n    if (!existing.has(title)) tasksToCreate.push({ title, date: fmt(today), type: 'Examen' });\n  }\n}\n\n// Resumen diario (email + Notion)\nconst upcoming = examUpdates.slice().sort((a,b)=>a.daysLeft-b.daysLeft);\nlet html = `<h2>📅 Tu agenda ClinDeck — ${fmt(today)}</h2><h3>Próximos exámenes</h3><ul>`;\nhtml += upcoming.length ? upcoming.map(u=>`<li><b>${u.name}</b> — faltan <b>${u.daysLeft}</b> días</li>`).join('') : '<li>Sin exámenes próximos 🎉</li>';\nhtml += '</ul><h3>Tareas creadas hoy</h3><ul>';\nhtml += tasksToCreate.length ? tasksToCreate.map(t=>`<li>${t.title}</li>`).join('') : '<li>Nada nuevo por hoy ✅</li>';\nhtml += '</ul><p style=\"color:#64748B;font-size:12px\">Generado por ClinDeck Study Bot · n8n</p>';\n\nconst text = `Agenda ${fmt(today)}\\nExámenes:\\n` +\n  upcoming.map(u=>`- ${u.name}: ${u.daysLeft} días`).join('\\n') +\n  `\\nTareas:\\n` + tasksToCreate.map(t=>`- ${t.title}`).join('\\n');\n\nreturn [{ json: { examUpdates, tasksToCreate, digestHtml: html, digestText: text, count: tasksToCreate.length } }];"
+      },
+      "id": "59dee87c-fe95-46ad-8df8-4bfaa78851d8",
+      "name": "Planificar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1060,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "={{ $('Config').first().json.EMAIL_TO }}",
+        "subject": "=📅 Agenda ClinDeck — {{ $now.toFormat('dd/MM') }}",
+        "emailType": "html",
+        "message": "={{ $json.digestHtml }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "3f24e9e0-e30d-40ae-aac1-8a133dfd3b57",
+      "name": "Email · Agenda diaria",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1300,
+        140
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REEMPLAZA_ID_CRED_GMAIL",
+          "name": "Gmail ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Una salida por examen a actualizar\nconst updates = $input.first().json.examUpdates || [];\nreturn updates.map(u => ({ json: u }));"
+      },
+      "id": "461cf781-f22f-4daa-bb5f-ef83533a2acc",
+      "name": "Expandir · actualizaciones",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/pages/{{ $json.pageId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ properties: { 'Días restantes': { number: $json.daysLeft } } }) }}",
+        "options": {}
+      },
+      "id": "14b43559-7a3d-4960-863f-d415c8705435",
+      "name": "Notion · Actualizar días",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1520,
+        320
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Una salida por tarea/recordatorio a crear\nconst tasks = $input.first().json.tasksToCreate || [];\nreturn tasks.map(t => ({ json: t }));"
+      },
+      "id": "5ada4357-132e-4a71-83f1-4545f61f584a",
+      "name": "Expandir · tareas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.notion.com/v1/pages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ parent: { database_id: $('Config').first().json.REMINDERS_DB }, properties: { 'Tarea': { title: [ { text: { content: $json.title } } ] }, 'Fecha': { date: { start: $json.date } }, 'Tipo': { select: { name: $json.type } }, 'Estado': { select: { name: 'Pendiente' } } } }) }}",
+        "options": {}
+      },
+      "id": "526d642c-36e4-43c8-bebe-f85a384fd942",
+      "name": "Notion · Crear recordatorio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1520,
+        500
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "REEMPLAZA_ID_CRED_NOTION",
+          "name": "Notion ClinDeck"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cada día 7:00": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Notion · Exámenes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion · Exámenes": {
+      "main": [
+        [
+          {
+            "node": "Notion · Mazos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion · Mazos": {
+      "main": [
+        [
+          {
+            "node": "Notion · Recordatorios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion · Recordatorios": {
+      "main": [
+        [
+          {
+            "node": "Planificar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Planificar": {
+      "main": [
+        [
+          {
+            "node": "Email · Agenda diaria",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Expandir · actualizaciones",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Expandir · tareas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Expandir · actualizaciones": {
+      "main": [
+        [
+          {
+            "node": "Notion · Actualizar días",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Expandir · tareas": {
+      "main": [
+        [
+          {
+            "node": "Notion · Crear recordatorio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/La_Paz"
+  },
+  "pinData": {},
+  "tags": [
+    {
+      "name": "ClinDeck"
+    },
+    {
+      "name": "medicina"
+    }
+  ]
+}
