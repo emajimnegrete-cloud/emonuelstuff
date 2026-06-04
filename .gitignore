@@ -1,0 +1,18 @@
+# Exports y productos generados (se suben a Gumroad, no al repo)
+exports/
+*.pdf
+*.png
+*.apkg
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Node (por si luego se añade tooling)
+node_modules/
+dist/
+.env
