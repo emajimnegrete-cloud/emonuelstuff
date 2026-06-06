@@ -66,3 +66,28 @@ Copia/pega estos textos al crear cada producto en Gumroad. Ajusta precios según
 - Subir 1 pieza como **"Pay what you want" ($0+)** para captar emails → embudo de `STRATEGY.md`.
 - Portada de cada producto = la propia infografía (vista previa vende).
 - En cada producto, primera línea visible: el beneficio, no el formato.
+
+---
+
+## 5) Bundle de automatización — "ClinDeck OS" (precio de mercado)
+
+> Producto distinto del contenido clínico: se vende a **creadores de contenido médico**,
+> academias de preparación de exámenes e infoproductores, no a estudiantes.
+
+**Título:** `ClinDeck OS — Automatiza tu negocio de contenido médico (n8n + Notion + IA)`
+
+**Descripción (ES):**
+> Sistema de automatización llave en mano: **3 workflows de n8n** (Study Bot de exámenes y
+> recordatorios, generador de mazos con IA Notion→Claude→Notion, y post-venta de Gumroad con
+> email + CRM) + **plantillas de bases de Notion** + guías de instalación + el prompt de Claude.
+> Monta una fábrica de flashcards y un embudo de post-venta que se opera solo.
+
+**Tiers y justificación de precio:**
+| Tier | Qué incluye | Precio | Referencia de mercado |
+|---|---|---|---|
+| **Self-serve** | 3 workflows n8n + plantillas Notion + guías + prompt | **$79** | Bundles de plantillas n8n/Notion se venden $49–99 |
+| **Llave en mano** | Instalación en tu n8n/Notion + conexiones + llamada 60 min + 30 d soporte | **$249** | Setups "done-for-you" van $200–500 |
+
+> Estrategia: el self-serve capta volumen; el llave en mano sube el ticket medio y es donde
+> está el margen. Ofrece el self-serve gratis o con descuento a quien compre 3+ temas de contenido.
+
